@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- Heartbeat icon -->
+  <rect x="0" y="0" width="72" height="72" rx="16" fill="#1E3A5F"/>
+  <polyline points="8,36 20,36 26,20 32,52 38,28 44,44 50,36 64,36"
+    stroke="#2D9F93" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="56" cy="36" r="4" fill="#C8A951"/>
+  <!-- Wordmark -->
+  <text x="84" y="38" font-family="'Manrope', 'Inter', sans-serif" font-size="22" font-weight="400" fill="#1E3A5F" letter-spacing="-0.5">emedi</text>
+  <text x="163" y="38" font-family="'Manrope', 'Inter', sans-serif" font-size="22" font-weight="800" fill="#2D9F93" letter-spacing="-0.5">quality</text>
+  <!-- Tagline -->
+  <text x="85" y="56" font-family="'Manrope', 'Inter', sans-serif" font-size="9.5" font-weight="500" fill="#64748B" letter-spacing="1.5">TELE SAĞLIK YAZILIM</text>
+</svg>

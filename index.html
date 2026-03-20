@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emediquality — Tele Sağlık Yazılım</title>
+  <meta name="description" content="Emediquality Tele Sağlık Yazılım Ltd. — Uludağ Üniversitesi Teknokent Ulutek bünyesinde yapay zeka destekli sağlık yazılımları.">
+  <meta property="og:title" content="Emediquality — Tele Sağlık Yazılım">
+  <meta property="og:description" content="RaportAI, TeleSağlamlıq ve Senar — yapay zeka destekli sağlık yazılımları.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://emediquality.com">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo-link">
+      <img src="img/logo-real.png" alt="Emediquality" class="logo-img" height="48">
+    </a>
+    <nav class="nav-links" id="nav">
+      <a href="#about"    data-tr="Hakkımızda"  data-en="About">Hakkımızda</a>
+      <a href="#products" data-tr="Ürünler"     data-en="Products">Ürünler</a>
+      <a href="#how-it-works" data-tr="Nasıl Çalışır" data-en="How It Works">Nasıl Çalışır</a>
+      <a href="#founder"  data-tr="Kurucu"      data-en="Founder">Kurucu</a>
+      <a href="#contact"  class="nav-cta" data-tr="İletişim" data-en="Contact">İletişim</a>
+      <button class="lang-toggle" id="langToggle"><span id="langLabel">EN</span></button>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-grain"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="dot-pulse"></span>
+        <span data-tr="Ulutek Teknokent · Bursa" data-en="Ulutek Technopark · Bursa">Ulutek Teknokent · Bursa</span>
+      </div>
+      <h1>
+        <span class="h1-line" data-tr="Sağlık Teknolojisinde" data-en="Pioneering">Sağlık Teknolojisinde</span>
+        <span class="h1-accent" data-tr="Yeni Nesil" data-en="Next-Gen">Yeni Nesil</span>
+        <span class="h1-line" data-tr="Çözümler" data-en="Health Tech">Çözümler</span>
+      </h1>
+      <p class="hero-sub" data-tr="Yapay zeka destekli yazılımlarla sağlık profesyonellerinin dijital dönüşümünü hızlandırıyoruz." data-en="We accelerate the digital transformation of health professionals with AI-powered software.">
+        Yapay zeka destekli yazılımlarla sağlık profesyonellerinin dijital dönüşümünü hızlandırıyoruz.
+      </p>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-teal">
+          <i class="ph-fill ph-rocket-launch"></i>
+          <span data-tr="Ürünleri Keşfet" data-en="Explore Products">Ürünleri Keşfet</span>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span data-tr="İletişime Geç" data-en="Get in Touch">İletişime Geç</span>
+          <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill"><i class="ph-duotone ph-brain"></i> AI</span>
+        <span class="pill"><i class="ph-duotone ph-video-camera"></i> <span data-tr="Telemedisin" data-en="Telemedicine">Telemedisin</span></span>
+        <span class="pill"><i class="ph-duotone ph-microphone"></i> <span data-tr="Ses Tanıma" data-en="Voice AI">Ses Tanıma</span></span>
+        <span class="pill"><i class="ph-duotone ph-clipboard-text"></i> <span data-tr="Klinik Otomasyon" data-en="Clinical AI">Klinik Otomasyon</span></span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-showcase">
+        <div class="hero-device hero-device-main">
+          <div class="device-bar"><span></span><span></span><span></span></div>
+          <img src="img/raportai-screen-dashboard.png" alt="RaportAI Dashboard" loading="eager">
+        </div>
+        <div class="hero-device hero-device-secondary">
+          <div class="device-bar"><span></span><span></span><span></span></div>
+          <img src="img/raportai-screen-reporting.png" alt="RaportAI Raporlama" loading="eager">
+        </div>
+        <div class="hero-float hero-float-1">
+          <i class="ph-fill ph-check-circle"></i>
+          <div>
+            <strong data-tr="Rapor Tamamlandı" data-en="Report Complete">Rapor Tamamlandı</strong>
+            <span data-tr="0.8 saniyede oluşturuldu" data-en="Generated in 0.8s">0.8 saniyede oluşturuldu</span>
+          </div>
+        </div>
+        <div class="hero-float hero-float-2">
+          <i class="ph-duotone ph-video-camera"></i>
+          <div>
+            <strong data-tr="Video Konsültasyon" data-en="Video Consultation">Video Konsültasyon</strong>
+            <span data-tr="Canlı bağlantı" data-en="Live connection">Canlı bağlantı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats-bar">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-n">3</span>
+          <span class="stat-l" data-tr="Aktif Platform" data-en="Active Platforms">Aktif Platform</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-n">2+</span>
+          <span class="stat-l" data-tr="Ülke" data-en="Countries">Ülke</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-n">AI</span>
+          <span class="stat-l" data-tr="Odaklı AR-GE" data-en="Driven R&D">Odaklı AR-GE</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-n">2025</span>
+          <span class="stat-l" data-tr="Teknokent Kuruluşu" data-en="Technopark Founded">Teknokent Kuruluşu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-card-col">
+        <div class="about-big-card">
+          <div class="abc-icon"><i class="ph-duotone ph-bank"></i></div>
+          <div class="abc-label" data-tr="Şirket" data-en="Company">Şirket</div>
+          <div class="abc-name">Emediquality<br>Tele Sağlık Yazılım<br>Limited Şirketi</div>
+          <div class="abc-divider"></div>
+          <div class="abc-location">
+            <i class="ph-duotone ph-map-pin"></i>
+            <span>Uludağ Üniversitesi<br>Teknokent Ulutek<br>Görükle, Bursa</span>
+          </div>
+          <div class="abc-badges">
+            <span class="abc-badge"><i class="ph-duotone ph-flask"></i> AR-GE</span>
+            <span class="abc-badge"><i class="ph-duotone ph-medal"></i> Teknokent</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text-col">
+        <div class="section-label" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</div>
+        <h2 data-tr="Sağlık Yazılımında Uzmanlaşmış Bir Teknokent Girişimi" data-en="A Technopark Startup Specializing in Health Software">
+          Sağlık Yazılımında Uzmanlaşmış Bir Teknokent Girişimi
+        </h2>
+        <p data-tr="Uludağ Üniversitesi Teknokent (Ulutek) çatısı altında faaliyet gösteren Emediquality, sağlık sektörüne yönelik yapay zeka destekli yazılımlar geliştirmektedir." data-en="Operating under Uludağ University Technopark (Ulutek), Emediquality develops AI-powered software for the healthcare sector.">
+          Uludağ Üniversitesi Teknokent (Ulutek) çatısı altında faaliyet gösteren Emediquality, sağlık sektörüne yönelik yapay zeka destekli yazılımlar geliştirmektedir.
+        </p>
+        <p data-tr="Radyoloji raporlamadan telemedisin platformlarına, ses tanımadan klinik iş akışı otomasyonuna kadar geniş bir yelpazede çözümler sunuyoruz. Amacımız; sağlık profesyonellerinin idari yükünü azaltmak ve hasta bakım kalitesini yükseltmektir." data-en="We offer solutions from radiology reporting to telemedicine platforms, from voice recognition to clinical workflow automation. Our goal: reduce administrative burden and raise patient care quality.">
+          Radyoloji raporlamadan telemedisin platformlarına, ses tanımadan klinik iş akışı otomasyonuna kadar geniş bir yelpazede çözümler sunuyoruz. Amacımız; sağlık profesyonellerinin idari yükünü azaltmak ve hasta bakım kalitesini yükseltmektir.
+        </p>
+        <div class="about-features">
+          <div class="af-item">
+            <div class="af-icon"><i class="ph-duotone ph-brain"></i></div>
+            <div>
+              <strong data-tr="Yapay Zeka Entegrasyonu" data-en="AI Integration">Yapay Zeka Entegrasyonu</strong>
+              <p data-tr="Büyük dil modelleri ve ses işleme" data-en="Large language models and audio processing">Büyük dil modelleri ve ses işleme</p>
+            </div>
+          </div>
+          <div class="af-item">
+            <div class="af-icon"><i class="ph-duotone ph-shield-check"></i></div>
+            <div>
+              <strong data-tr="Sağlık Veri Güvenliği" data-en="Health Data Security">Sağlık Veri Güvenliği</strong>
+              <p data-tr="KVKK uyumlu, şifreli veri işleme" data-en="KVKK compliant, encrypted data processing">KVKK uyumlu, şifreli veri işleme</p>
+            </div>
+          </div>
+          <div class="af-item">
+            <div class="af-icon"><i class="ph-duotone ph-plugs-connected"></i></div>
+            <div>
+              <strong data-tr="Sistem Entegrasyonu" data-en="System Integration">Sistem Entegrasyonu</strong>
+              <p data-tr="PACS, HBYS ve HIS sistemleriyle uyum" data-en="Compatible with PACS, HIS systems">PACS, HBYS ve HIS sistemleriyle uyum</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products section section-dark" id="products">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <div class="section-label light" data-tr="Ürünlerimiz" data-en="Our Products">Ürünlerimiz</div>
+        <h2 data-tr="Geliştirdiğimiz Platformlar" data-en="Platforms We Build">Geliştirdiğimiz Platformlar</h2>
+      </div>
+    </div>
+
+    <!-- Product Tabs -->
+    <div class="prod-tabs">
+      <button class="prod-tab active" data-target="tab-raportai">
+        <i class="ph-duotone ph-stethoscope"></i> RaportAI
+        <span class="tab-live" data-tr="Canlı" data-en="Live">Canlı</span>
+      </button>
+      <button class="prod-tab" data-target="tab-tele">
+        <i class="ph-duotone ph-video-camera"></i> TeleSağlamlıq
+        <span class="tab-live" data-tr="Canlı" data-en="Live">Canlı</span>
+      </button>
+      <button class="prod-tab" data-target="tab-senar">
+        <i class="ph-duotone ph-wave-sine"></i> Senar
+        <span class="tab-soon" data-tr="Yakında" data-en="Soon">Yakında</span>
+      </button>
+    </div>
+
+    <!-- RaportAI Tab -->
+    <div class="prod-panel active" id="tab-raportai">
+      <div class="prod-panel-inner">
+        <div class="prod-info">
+          <div class="prod-title-row">
+            <img src="img/raportai-logo.png" alt="RaportAI" class="prod-logo">
+          </div>
+          <p class="prod-tagline" data-tr="Yapay Zeka Destekli Radyoloji Raporlama" data-en="AI-Powered Radiology Reporting">Yapay Zeka Destekli Radyoloji Raporlama</p>
+          <p data-tr="Radyologlar için sesli dikteden saniyeler içinde yapılandırılmış tıbbi rapor üreten yapay zeka platformu. PACS ve HBYS sistemleriyle entegre çalışır, %99'dan fazla doğrulukla raporlama sürenizi yarıya indirir." data-en="AI platform for radiologists that generates structured medical reports from voice dictation in seconds. Integrates with PACS and HIS systems, cutting reporting time in half with 99%+ accuracy.">
+              Radyologlar için sesli dikteden saniyeler içinde yapılandırılmış tıbbi rapor üreten yapay zeka platformu. PACS ve HBYS sistemleriyle entegre çalışır, %99'dan fazla doğrulukla raporlama sürenizi yarıya indirir.
+          </p>
+          <ul class="prod-list">
+            <li><i class="ph ph-check"></i><span data-tr="Sesli dikte → yapılandırılmış rapor" data-en="Voice dictation → structured report">Sesli dikte → yapılandırılmış rapor</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="PACS / HBYS entegrasyonu" data-en="PACS / HIS integration">PACS / HBYS entegrasyonu</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="6 dil desteği (TR/EN/RU/AZ/FR/DE)" data-en="6 language support (TR/EN/RU/AZ/FR/DE)">6 dil desteği (TR/EN/RU/AZ/FR/DE)</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="Akıllı şablon kütüphanesi — 180+ şablon" data-en="Smart template library — 180+ templates">Akıllı şablon kütüphanesi — 180+ şablon</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="%99+ doğruluk, 2× hız" data-en="99%+ accuracy, 2× speed">%99+ doğruluk, 2× hız</span></li>
+          </ul>
+          <a href="https://raportai.com" target="_blank" rel="noopener" class="btn btn-teal">
+            raportai.com <i class="ph ph-arrow-square-out"></i>
+          </a>
+        </div>
+        <div class="prod-media">
+          <div class="screen-cinema">
+            <div class="device-bar"><span></span><span></span><span></span></div>
+            <img src="img/raportai-screen-reporting.png" alt="RaportAI Raporlama" class="screen-main" loading="lazy">
+          </div>
+          <div class="screen-overlay">
+            <div class="device-bar"><span></span><span></span><span></span></div>
+            <img src="img/raportai-screen-dashboard.png" alt="RaportAI Dashboard" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <!-- RaportAI Gallery -->
+      <div class="prod-gallery">
+        <div class="gallery-track">
+          <div class="gallery-card">
+            <img src="img/raportai-ad-1.jpg" alt="RaportAI — Sesiniz, Raporunuz" loading="lazy">
+          </div>
+          <div class="gallery-card">
+            <img src="img/raportai-ad-2.jpg" alt="RaportAI — Hızlı Rapor" loading="lazy">
+          </div>
+          <div class="gallery-card">
+            <img src="img/raportai-ad-3.jpg" alt="RaportAI — PACS Entegrasyonu" loading="lazy">
+          </div>
+          <div class="gallery-card gallery-card-hero">
+            <img src="img/raportai-hero.png" alt="RaportAI Platform" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TeleSağlamlıq Tab -->
+    <div class="prod-panel" id="tab-tele">
+      <div class="prod-panel-inner">
+        <div class="prod-info">
+          <div class="prod-title-row">
+            <div class="prod-icon tele-icon"><i class="ph-duotone ph-video-camera"></i></div>
+            <div>
+              <h3>TeleSağlamlıq</h3>
+            </div>
+          </div>
+          <p class="prod-tagline" data-tr="Azerbaycan'ın İlk Telemedisin Platformu" data-en="Azerbaijan's First Telemedicine Platform">Azerbaycan'ın İlk Telemedisin Platformu</p>
+          <p data-tr="Hasta-doktor buluşturma ve video konsültasyon platformu. Dört dil desteği, Stripe ödeme entegrasyonu ve Jitsi tabanlı güvenli video görüşmeleriyle Azerbaycan'da telesağlık alanında öncü." data-en="Patient-doctor matching and video consultation platform. Pioneer in telemedicine in Azerbaijan with four-language support, Stripe payment integration, and Jitsi-based secure video calls.">
+              Hasta-doktor buluşturma ve video konsültasyon platformu. Dört dil desteği, Stripe ödeme entegrasyonu ve Jitsi tabanlı güvenli video görüşmeleriyle Azerbaycan'da telesağlık alanında öncü.
+          </p>
+          <ul class="prod-list">
+            <li><i class="ph ph-check"></i><span data-tr="Video konsültasyon (Jitsi Meet)" data-en="Video consultation (Jitsi Meet)">Video konsültasyon (Jitsi Meet)</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="AZ / TR / EN / RU dil desteği" data-en="AZ / TR / EN / RU language support">AZ / TR / EN / RU dil desteği</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="Stripe ödeme & randevu yönetimi" data-en="Stripe payments & appointment management">Stripe ödeme & randevu yönetimi</span></li>
+            <li><i class="ph ph-check"></i><span data-tr="Doktor arama & değerlendirme sistemi" data-en="Doctor search & rating system">Doktor arama & değerlendirme sistemi</span></li>
+          </ul>
+          <a href="https://telesaglamliq.com" target="_blank" rel="noopener" class="btn btn-tele">
+            telesaglamliq.com <i class="ph ph-arrow-square-out"></i>
+          </a>
+        </div>
+        <div class="prod-media">
+          <div class="tele-showcase">
+            <div class="tele-hero-img">
+              <img src="img/telesaglamliq-hero.png" alt="TeleSağlamlıq" loading="lazy">
+            </div>
+            <div class="tele-features-img">
+              <img src="img/telesaglamliq-features.png" alt="TeleSağlamlıq Özellikler" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- TeleSağlamlıq Gallery -->
+      <div class="prod-gallery">
+        <div class="gallery-track tele-gallery">
+          <div class="gallery-card">
+            <img src="img/telesaglamliq-screen.png" alt="TeleSağlamlıq Platform" loading="lazy">
+          </div>
+          <div class="gallery-card">
+            <img src="img/telesaglamliq-hero.png" alt="TeleSağlamlıq" loading="lazy">
+          </div>
+          <div class="gallery-card">
+            <img src="img/telesaglamliq-features.png" alt="TeleSağlamlıq Özellikler" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Senar Tab -->
+    <div class="prod-panel" id="tab-senar">
+      <div class="prod-panel-inner prod-panel-soon">
+        <div class="soon-content">
+          <div class="soon-icon"><i class="ph-duotone ph-wave-sine"></i></div>
+          <h3>Senar</h3>
+          <p data-tr="Klinik İş Akışı Platformu" data-en="Clinical Workflow Platform">Klinik İş Akışı Platformu</p>
+          <p class="soon-desc" data-tr="Senar, klinik iş akışlarını kökten dönüştürmek için tasarlanan bir sonraki büyük projemiz. Detaylar yakında açıklanacak." data-en="Senar is our next major project designed to fundamentally transform clinical workflows. Details coming soon.">
+            Senar, klinik iş akışlarını kökten dönüştürmek için tasarlanan bir sonraki büyük projemiz. Detaylar yakında açıklanacak.
+          </p>
+          <span class="soon-badge" data-tr="Geliştirme Aşamasında" data-en="In Development">Geliştirme Aşamasında</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works section" id="how-it-works">
+  <div class="container">
+    <div class="hiw-header">
+      <div class="section-label" data-tr="Nasıl Çalışır" data-en="How It Works">Nasıl Çalışır</div>
+      <h2 data-tr="RaportAI ile Raporlama Süreci" data-en="Reporting Process with RaportAI">RaportAI ile Raporlama Süreci</h2>
+      <p class="hiw-sub" data-tr="Sesli dikteden yapılandırılmış tıbbi rapora — beş adımda, saniyeler içinde." data-en="From voice dictation to structured medical report — in five steps, within seconds.">
+        Sesli dikteden yapılandırılmış tıbbi rapora — beş adımda, saniyeler içinde.
+      </p>
+    </div>
+    <div class="hiw-layout">
+      <div class="hiw-infographic">
+        <img src="img/raportai-how-it-works.png" alt="RaportAI Süreç" loading="lazy">
+      </div>
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-step-n">1</div>
+          <div>
+            <strong data-tr="Ses Kaydı" data-en="Voice Recording">Ses Kaydı</strong>
+            <p data-tr="Doktor, ses kaydı yapar veya raporu yazarak süreci başlatır." data-en="Doctor starts the process by recording voice or typing the report.">Doktor, ses kaydı yapar veya raporu yazarak süreci başlatır.</p>
+          </div>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-step-n">2</div>
+          <div>
+            <strong data-tr="AI Transkripsiyon" data-en="AI Transcription">AI Transkripsiyon</strong>
+            <p data-tr="AI, ses kaydını metne dönüştürür." data-en="AI converts the voice recording to text.">AI, ses kaydını metne dönüştürür.</p>
+          </div>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-step-n">3</div>
+          <div>
+            <strong data-tr="Rapor İşlenmesi" data-en="Report Processing">Rapor İşlenmesi</strong>
+            <p data-tr="AI, yapılandırılmış bir radyoloji raporu oluşturur." data-en="AI creates a structured radiology report.">AI, yapılandırılmış bir radyoloji raporu oluşturur.</p>
+          </div>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-step-n">4</div>
+          <div>
+            <strong data-tr="Doktor Onayı" data-en="Doctor Approval">Doktor Onayı</strong>
+            <p data-tr="Doktor, raporu gözden geçirir ve onaylar." data-en="Doctor reviews and approves the report.">Doktor, raporu gözden geçirir ve onaylar.</p>
+          </div>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-step-n">5</div>
+          <div>
+            <strong data-tr="Rapor Paylaşımı" data-en="Report Sharing">Rapor Paylaşımı</strong>
+            <p data-tr="Rapor, HBYS üzerinden kaydedilir ve paylaşılır." data-en="Report is saved and shared through HIS.">Rapor, HBYS üzerinden kaydedilir ve paylaşılır.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER ===== -->
+<section class="founder section section-alt" id="founder">
+  <div class="container">
+    <div class="founder-layout">
+      <div class="founder-left">
+        <div class="section-label" data-tr="Kurucu" data-en="Founder">Kurucu</div>
+        <h2>Hakan Kılıç</h2>
+        <div class="founder-role" data-tr="Kurucu & CEO" data-en="Founder & CEO">Kurucu & CEO</div>
+        <div class="founder-company">Emediquality Tele Sağlık Yazılım Ltd.</div>
+        <p data-tr="Sağlık bilişimi ve yapay zeka alanında uzmanlaşmış yazılım girişimcisi. Uludağ Üniversitesi Teknokent bünyesinde radyoloji raporlama, telemedisin ve klinik otomasyon alanlarında yenilikçi çözümler geliştirmektedir." data-en="Software entrepreneur specialized in health informatics and artificial intelligence. Developing innovative solutions in radiology reporting, telemedicine and clinical automation under Uludağ University Technopark.">
+          Sağlık bilişimi ve yapay zeka alanında uzmanlaşmış yazılım girişimcisi. Uludağ Üniversitesi Teknokent bünyesinde radyoloji raporlama, telemedisin ve klinik otomasyon alanlarında yenilikçi çözümler geliştirmektedir.
+        </p>
+        <div class="founder-products">
+          <span class="fp-tag raportai-tag">RaportAI</span>
+          <span class="fp-tag tele-tag">TeleSağlamlıq</span>
+          <span class="fp-tag senar-tag">Senar</span>
+        </div>
+        <div class="founder-links">
+          <a href="mailto:info@emediquality.com" class="founder-link">
+            <i class="ph-duotone ph-envelope"></i> info@emediquality.com
+          </a>
+          <a href="https://www.linkedin.com/in/hakan-k%C4%B1l%C4%B1%C3%A7-104990312" target="_blank" rel="noopener" class="founder-link">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="founder-right">
+        <div class="founder-avatar">
+          <img src="img/hakan-kilic.jpg" alt="Hakan Kılıç" class="founder-photo">
+          <div class="fa-ring fa-ring-1"></div>
+          <div class="fa-ring fa-ring-2"></div>
+        </div>
+        <div class="founder-stats">
+          <div class="fs-item">
+            <span class="fs-n">3</span>
+            <span class="fs-l" data-tr="Platform" data-en="Platforms">Platform</span>
+          </div>
+          <div class="fs-item">
+            <span class="fs-n">2+</span>
+            <span class="fs-l" data-tr="Ülke" data-en="Countries">Ülke</span>
+          </div>
+          <div class="fs-item">
+            <span class="fs-n">AI</span>
+            <span class="fs-l" data-tr="Odaklı" data-en="Driven">Odaklı</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <div class="section-label" data-tr="İletişim" data-en="Contact">İletişim</div>
+        <h2 data-tr="Konuşalım" data-en="Let's Talk">Konuşalım</h2>
+        <p data-tr="Ürünlerimiz hakkında bilgi almak, iş birliği yapmak ya da sadece merhaba demek için bize ulaşın." data-en="Reach out to learn about our products, collaborate, or just say hello.">
+          Ürünlerimiz hakkında bilgi almak, iş birliği yapmak ya da sadece merhaba demek için bize ulaşın.
+        </p>
+        <div class="contact-cards">
+          <div class="cc-item">
+            <div class="cc-icon"><i class="ph-duotone ph-map-pin"></i></div>
+            <div class="cc-body">
+              <strong data-tr="Adres" data-en="Address">Adres</strong>
+              <p>Uludağ Üniversitesi Teknokent Ulutek<br>Görükle Kampüsü, Nilüfer / Bursa</p>
+            </div>
+          </div>
+          <div class="cc-item">
+            <div class="cc-icon"><i class="ph-duotone ph-envelope"></i></div>
+            <div class="cc-body">
+              <strong>E-posta</strong>
+              <p><a href="mailto:info@emediquality.com">info@emediquality.com</a></p>
+            </div>
+          </div>
+          <div class="cc-item">
+            <div class="cc-icon"><i class="ph-duotone ph-globe"></i></div>
+            <div class="cc-body">
+              <strong data-tr="Ürünler" data-en="Products">Ürünler</strong>
+              <p>
+                <a href="https://raportai.com" target="_blank" rel="noopener">raportai.com</a> ·
+                <a href="https://telesaglamliq.com" target="_blank" rel="noopener">telesaglamliq.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form class="cform" id="cForm" novalidate>
+          <!-- Honeypot -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+          <div class="cf-row">
+            <input type="text"  id="cfName"    name="name"    placeholder=" " required maxlength="100" autocomplete="name">
+            <label for="cfName" data-tr="Ad Soyad" data-en="Full Name">Ad Soyad</label>
+          </div>
+          <div class="cf-row">
+            <input type="email" id="cfEmail"   name="email"   placeholder=" " required maxlength="200" autocomplete="email">
+            <label for="cfEmail" data-tr="E-posta" data-en="Email">E-posta</label>
+          </div>
+          <div class="cf-row">
+            <input type="text"  id="cfCompany" name="company" placeholder=" " maxlength="200" autocomplete="organization">
+            <label for="cfCompany" data-tr="Kurum / Şirket (opsiyonel)" data-en="Company (optional)">Kurum / Şirket (opsiyonel)</label>
+          </div>
+          <div class="cf-row">
+            <textarea id="cfMsg" name="message" placeholder=" " rows="4" required maxlength="2000"></textarea>
+            <label for="cfMsg" data-tr="Mesajınız" data-en="Your Message">Mesajınız</label>
+          </div>
+          <button type="submit" class="btn btn-teal btn-full" id="cfSubmit">
+            <i class="ph-fill ph-paper-plane-tilt"></i>
+            <span data-tr="Gönder" data-en="Send">Gönder</span>
+          </button>
+          <div id="cfStatus" class="cf-status" role="alert"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="img/logo-real.png" alt="Emediquality" height="64" class="footer-logo">
+        <p data-tr="Uludağ Üniversitesi Teknokent Ulutek bünyesinde yapay zeka destekli sağlık yazılımları." data-en="AI-powered health software under Uludağ University Technopark Ulutek.">
+          Uludağ Üniversitesi Teknokent Ulutek bünyesinde yapay zeka destekli sağlık yazılımları.
+        </p>
+      </div>
+      <div class="footer-col">
+        <strong data-tr="Ürünler" data-en="Products">Ürünler</strong>
+        <a href="https://raportai.com" target="_blank" rel="noopener">RaportAI</a>
+        <a href="https://telesaglamliq.com" target="_blank" rel="noopener">TeleSağlamlıq</a>
+        <span data-tr="Senar (Yakında)" data-en="Senar (Soon)">Senar (Yakında)</span>
+      </div>
+      <div class="footer-col">
+        <strong data-tr="Şirket" data-en="Company">Şirket</strong>
+        <a href="#about" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
+        <a href="#founder" data-tr="Kurucu" data-en="Founder">Kurucu</a>
+        <a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-tr="© 2025 Emediquality Tele Sağlık Yazılım Ltd. Şti. — Tüm hakları saklıdır." data-en="© 2025 Emediquality Tele Sağlık Yazılım Ltd. — All rights reserved.">
+        © 2025 Emediquality Tele Sağlık Yazılım Ltd. Şti. — Tüm hakları saklıdır.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Kapat"><i class="ph ph-x"></i></button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
