@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emediquality — Sağlık Teknolojisinde Yeni Nesil</title>
+<meta name="description" content="Emediquality Tele Sağlık Yazılım Ltd. — AI destekli radyoloji raporlama, telemedisin ve klinik otomasyon çözümleri.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ═══════════════════════════════════════
+   RESET & TOKENS
+   ═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Primary Palette */
+  --navy:#1E3A5F;--navy-deep:#0f1e2e;--navy-mid:#152B47;--navy-light:#2A4F7A;
+  --teal:#2D9F93;--teal-light:#3AB8AA;--teal-dark:#248A80;--teal-glow:rgba(45,159,147,.15);
+  --gold:#C8A951;--gold-light:#D4BA6E;--gold-glow:rgba(200,169,81,.15);
+  /* Neutrals */
+  --bg:#F7F9FC;--bg-alt:#EFF3F8;--white:#FFFFFF;
+  --gray-50:#F8FAFB;--gray-100:#F1F4F7;--gray-200:#E2E8EE;
+  --gray-300:#CDD5DE;--gray-400:#9BA5B2;--gray-500:#6B7687;
+  --gray-600:#4A5568;--gray-700:#2D3748;--gray-800:#1A202C;
+  /* Radius */
+  --r-sm:8px;--r-md:12px;--r-lg:20px;--r-xl:28px;--r-full:50px;
+  /* Shadows */
+  --sh-xs:0 1px 2px rgba(15,30,46,.04);
+  --sh-sm:0 2px 8px rgba(15,30,46,.06);
+  --sh-md:0 4px 20px rgba(15,30,46,.08);
+  --sh-lg:0 12px 40px rgba(15,30,46,.10);
+  --sh-xl:0 24px 64px rgba(15,30,46,.14);
+  --sh-teal:0 8px 32px rgba(45,159,147,.25);
+  /* Misc */
+  --ease:cubic-bezier(.4,0,.2,1);--tr:.3s var(--ease);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Manrope',system-ui,-apple-system,sans-serif;color:var(--gray-700);line-height:1.65;background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,h4,h5{font-family:'Fraunces','Georgia',serif;color:var(--navy);line-height:1.2;font-weight:700}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit;transition:var(--tr)}
+ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════ */
+.display{font-size:clamp(2.5rem,5vw,3.75rem);letter-spacing:-0.03em;font-weight:800}
+.h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.02em}
+.h2{font-size:clamp(1.75rem,3.5vw,2.5rem);letter-spacing:-0.02em}
+.h3{font-size:clamp(1.25rem,2vw,1.5rem)}
+.body-lg{font-size:1.125rem;line-height:1.75}
+.body-sm{font-size:0.875rem;line-height:1.65}
+.label{font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
+
+/* ═══════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:var(--r-full);font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:700;border:none;cursor:pointer;transition:all .3s var(--ease);white-space:nowrap;letter-spacing:.01em}
+.btn-primary{background:var(--teal);color:var(--white)}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:var(--sh-teal)}
+.btn-secondary{background:rgba(255,255,255,.08);color:var(--white);border:1.5px solid rgba(255,255,255,.2);backdrop-filter:blur(8px)}
+.btn-secondary:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--gray-200)}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--navy-deep);font-weight:700}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,169,81,.3)}
+
+/* ═══════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════ */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .35s var(--ease)}
+.header.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 1px 0 rgba(30,58,95,.06);padding:14px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:36px;width:auto}
+.nav{display:flex;align-items:center;gap:36px}
+.nav a{font-size:0.8125rem;font-weight:600;color:var(--gray-500);position:relative;padding:4px 0}
+.nav a::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:var(--teal);border-radius:1px;transition:all .3s var(--ease);transform:translateX(-50%)}
+.nav a:hover{color:var(--navy)}
+.nav a:hover::after{width:100%}
+.nav a.active{color:var(--navy)}
+.nav a.active::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:10px}
+.lang-btn{display:flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r-full);font-size:0.75rem;font-weight:700;color:var(--gray-500);border:1.5px solid var(--gray-200);background:var(--white);cursor:pointer;transition:var(--tr);letter-spacing:.02em}
+.lang-btn:hover{border-color:var(--teal);color:var(--teal)}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:var(--tr)}
+
+/* ═══════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════ */
+.hero{position:relative;padding:160px 0 120px;background:var(--navy-deep);overflow:hidden}
+/* Mesh gradient layers */
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:70%;height:80%;background:radial-gradient(ellipse at center,rgba(45,159,147,.12) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;width:50%;height:60%;background:radial-gradient(ellipse at center,rgba(200,169,81,.08) 0%,transparent 60%);pointer-events:none}
+.hero-gradient{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(42,79,122,.4) 50%,rgba(45,159,147,.08) 100%);pointer-events:none}
+.hero-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4;pointer-events:none}
+.hero-grid-pattern{position:absolute;inset:0;background-image:
+  linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+background-size:72px 72px;pointer-events:none}
+
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(45,159,147,.1);border:1px solid rgba(45,159,147,.2);border-radius:var(--r-full);margin-bottom:28px}
+.hero-badge span{font-size:0.75rem;font-weight:700;color:var(--teal-light);letter-spacing:.02em}
+.hero-badge i{font-size:0.875rem;color:var(--teal-light)}
+.hero h1{color:var(--white);margin-bottom:24px;line-height:1.12}
+.hero h1 .accent{color:var(--teal-light);position:relative}
+.hero h1 .gold{color:var(--gold)}
+.hero-text{color:rgba(255,255,255,.55);font-size:1rem;line-height:1.75;margin-bottom:40px;max-width:460px;font-weight:500}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-trust-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:0.75rem;font-weight:600}
+.hero-trust-item i{color:var(--teal);font-size:1rem}
+.hero-visual{position:relative}
+.hero-screen-main{border-radius:var(--r-lg);box-shadow:0 32px 80px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06);transition:transform .7s var(--ease)}
+.hero-screen-float{position:absolute;bottom:-24px;left:-48px;width:55%;border-radius:var(--r-md);box-shadow:0 24px 60px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);transition:transform .7s var(--ease)}
+.hero-visual:hover .hero-screen-main{transform:translateY(-6px)}
+.hero-visual:hover .hero-screen-float{transform:translate(6px,-10px)}
+
+/* ═══════════════════════════════════════
+   STATS BAR
+   ═══════════════════════════════════════ */
+.stats{position:relative;z-index:3;margin-top:-52px;padding:0 24px}
+.stats-inner{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--sh-lg);padding:44px 64px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border:1px solid rgba(226,232,238,.6)}
+.stat{text-align:center}
+.stat-value{font-family:'Fraunces',serif;font-size:1.625rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.stat-value .teal{color:var(--teal)}
+.stat-label{font-size:0.75rem;color:var(--gray-400);font-weight:600}
+
+/* ═══════════════════════════════════════
+   SECTION DEFAULTS
+   ═══════════════════════════════════════ */
+.section{padding:110px 0}
+.section-alt{background:var(--white)}
+.section-header{text-align:center;max-width:600px;margin:0 auto 72px}
+.section-header .label{color:var(--teal);margin-bottom:14px;display:inline-block;padding:6px 16px;background:var(--teal-glow);border-radius:var(--r-full)}
+.section-header p{color:var(--gray-500);margin-top:16px;font-size:1rem;font-weight:500}
+/* Decorative line under section headers */
+.section-header h2{position:relative;display:inline-block;padding-bottom:20px}
+.section-header h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:48px;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:2px}
+
+/* ═══════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-card{background:linear-gradient(145deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-light) 100%);border-radius:var(--r-xl);padding:48px;color:var(--white);position:relative;overflow:hidden}
+.about-card::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(45,159,147,.18),transparent 70%);border-radius:50%}
+.about-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(200,169,81,.1),transparent 70%);border-radius:50%}
+.about-card .label{color:var(--teal-light);margin-bottom:16px;display:inline-block;padding:5px 12px;background:rgba(45,159,147,.12);border-radius:var(--r-full);position:relative;z-index:1}
+.about-card h3{color:var(--white);margin-bottom:16px;position:relative;z-index:1}
+.about-card p{color:rgba(255,255,255,.65);font-size:0.9375rem;line-height:1.75;position:relative;z-index:1;font-weight:500}
+.about-card-location{display:flex;align-items:center;gap:8px;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.45);font-size:0.8125rem;position:relative;z-index:1;font-weight:600}
+.about-card-location i{color:var(--gold);font-size:1.125rem}
+.about-features{display:flex;flex-direction:column;gap:20px}
+.about-feature{display:flex;gap:20px;padding:28px;background:var(--white);border-radius:var(--r-lg);border:1px solid var(--gray-200);transition:all .35s var(--ease)}
+.about-feature:hover{border-color:transparent;box-shadow:var(--sh-md);transform:translateY(-3px)}
+.about-feature-icon{flex-shrink:0;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.375rem}
+.about-feature-icon.ai{background:var(--teal-glow);color:var(--teal)}
+.about-feature-icon.security{background:rgba(30,58,95,.06);color:var(--navy)}
+.about-feature-icon.integration{background:var(--gold-glow);color:var(--gold)}
+.about-feature h4{font-family:'Manrope',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.about-feature p{font-size:0.8125rem;color:var(--gray-500);line-height:1.65;font-weight:500}
+
+/* ═══════════════════════════════════════
+   PRODUCTS — Tab system
+   ═══════════════════════════════════════ */
+.products-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:60px;flex-wrap:wrap}
+.tab-btn{display:flex;align-items:center;gap:10px;padding:13px 28px;border-radius:var(--r-full);font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:700;border:1.5px solid var(--gray-200);background:var(--white);color:var(--gray-500);cursor:pointer;transition:all .3s var(--ease)}
+.tab-btn:hover{border-color:var(--teal);color:var(--teal)}
+.tab-btn.active{background:var(--navy-deep);color:var(--white);border-color:var(--navy-deep);box-shadow:0 4px 16px rgba(15,30,46,.2)}
+.tab-btn img{height:22px;width:auto;border-radius:4px}
+.tab-btn .coming{font-size:0.625rem;padding:3px 10px;background:var(--gold);color:var(--navy-deep);border-radius:var(--r-full);font-weight:800;letter-spacing:.02em}
+.tab-panel{display:none;animation:fadeUp .5s var(--ease)}
+.tab-panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Product Hero */
+.product-hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:64px}
+.product-hero-content .label{color:var(--teal);margin-bottom:14px;display:inline-block;padding:5px 14px;background:var(--teal-glow);border-radius:var(--r-full)}
+.product-hero-content h3{margin-bottom:16px}
+.product-hero-content p{color:var(--gray-500);font-size:0.9375rem;line-height:1.75;margin-bottom:28px;font-weight:500}
+.product-features-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.product-features-list li{display:flex;align-items:center;gap:10px;font-size:0.875rem;color:var(--gray-600);font-weight:600}
+.product-features-list li i{color:var(--teal);font-size:1.125rem}
+.product-screens{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.product-screen{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);border:1px solid var(--gray-200);transition:all .4s var(--ease);background:var(--white)}
+.product-screen:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+.product-screen img{width:100%;display:block}
+.product-ads{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.product-ad{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--gray-200);transition:all .35s var(--ease)}
+.product-ad:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
+.product-ad img{width:100%;display:block}
+
+/* TeleSaglamliq Panel */
+.tele-hero-img{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
+.tele-screens{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.tele-screen{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);border:1px solid var(--gray-200);transition:all .35s var(--ease)}
+.tele-screen:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+
+/* Senar Panel */
+.senar-placeholder{text-align:center;padding:80px 40px;background:var(--white);border-radius:var(--r-xl);border:2px dashed var(--gray-200);position:relative;overflow:hidden}
+.senar-placeholder::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-glow) 0%,transparent 50%,var(--gold-glow) 100%);pointer-events:none}
+.senar-placeholder i{font-size:3rem;color:var(--gold);margin-bottom:20px;display:block;position:relative}
+.senar-placeholder h3{margin-bottom:12px;position:relative}
+.senar-placeholder p{color:var(--gray-500);max-width:420px;margin:0 auto;position:relative;font-weight:500}
+
+/* ═══════════════════════════════════════
+   HOW IT WORKS
+   ═══════════════════════════════════════ */
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.how-image{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);border:1px solid var(--gray-200)}
+.how-steps{display:flex;flex-direction:column;gap:6px}
+.how-step{display:flex;gap:20px;padding:20px;border-radius:var(--r-md);transition:all .35s var(--ease);cursor:default}
+.how-step:hover{background:var(--white);box-shadow:var(--sh-sm)}
+.how-step-num{flex-shrink:0;width:42px;height:42px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:1rem;color:var(--navy);transition:all .35s var(--ease)}
+.how-step:hover .how-step-num{background:var(--teal);color:var(--white);box-shadow:var(--sh-teal)}
+.how-step h4{font-family:'Manrope',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.how-step p{font-size:0.8125rem;color:var(--gray-500);line-height:1.65;font-weight:500}
+
+/* ═══════════════════════════════════════
+   FOUNDER
+   ═══════════════════════════════════════ */
+.founder-card{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:center;background:var(--white);border-radius:var(--r-xl);padding:56px;border:1px solid var(--gray-200);box-shadow:var(--sh-sm);position:relative;overflow:hidden}
+.founder-card::before{content:'';position:absolute;top:-80px;right:-80px;width:200px;height:200px;background:radial-gradient(circle,var(--teal-glow),transparent 70%);pointer-events:none}
+.founder-photo{position:relative}
+.founder-photo img{border-radius:var(--r-xl);width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:var(--sh-md)}
+.founder-photo::after{content:'';position:absolute;bottom:-10px;right:-10px;width:72px;height:72px;background:linear-gradient(135deg,var(--teal),var(--teal-light));border-radius:var(--r-lg);z-index:-1;opacity:.25}
+.founder-info .label{color:var(--teal);margin-bottom:14px;display:inline-block;padding:5px 14px;background:var(--teal-glow);border-radius:var(--r-full)}
+.founder-info h3{margin-bottom:6px}
+.founder-info .role{color:var(--gray-400);font-size:0.875rem;margin-bottom:20px;font-weight:600}
+.founder-info p{color:var(--gray-600);font-size:0.9375rem;line-height:1.8;margin-bottom:28px;font-weight:500}
+.founder-links{display:flex;gap:12px}
+.founder-link{display:flex;align-items:center;gap:8px;padding:10px 22px;border-radius:var(--r-full);font-size:0.8125rem;font-weight:700;border:1.5px solid var(--gray-200);color:var(--gray-600);transition:all .3s var(--ease)}
+.founder-link:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.founder-link i{font-size:1rem}
+
+/* ═══════════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-item{display:flex;gap:16px}
+.contact-icon{flex-shrink:0;width:50px;height:50px;border-radius:14px;background:var(--teal-glow);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.25rem;transition:var(--tr)}
+.contact-item:hover .contact-icon{background:var(--teal);color:var(--white);box-shadow:var(--sh-teal)}
+.contact-item h4{font-family:'Manrope',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.contact-item p{font-size:0.8125rem;color:var(--gray-500);line-height:1.65;font-weight:500}
+.contact-item a{color:var(--teal);font-weight:600}
+.contact-form{background:var(--white);border-radius:var(--r-xl);padding:44px;border:1px solid var(--gray-200);box-shadow:var(--sh-sm)}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:0.75rem;font-weight:700;color:var(--gray-600);margin-bottom:8px;letter-spacing:.02em}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 16px;border:1.5px solid var(--gray-200);border-radius:var(--r-md);font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:500;color:var(--gray-700);transition:all .25s var(--ease);background:var(--bg);outline:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--teal);background:var(--white);box-shadow:0 0 0 4px rgba(45,159,147,.08)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ═══════════════════════════════════════
+   CTA BANNER (before footer)
+   ═══════════════════════════════════════ */
+.cta-banner{position:relative;padding:80px 0;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 50%,var(--navy-light) 100%);overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-50%;right:-10%;width:50%;height:200%;background:radial-gradient(ellipse,rgba(45,159,147,.1),transparent 60%);pointer-events:none}
+.cta-inner{text-align:center;position:relative;z-index:2}
+.cta-inner h2{color:var(--white);margin-bottom:16px}
+.cta-inner p{color:rgba(255,255,255,.55);font-size:1rem;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;font-weight:500}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.footer{background:var(--navy-deep);color:rgba(255,255,255,.5);padding:80px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+.footer-brand img{height:32px;margin-bottom:16px}
+.footer-brand p{font-size:0.8125rem;line-height:1.75;max-width:280px;font-weight:500}
+.footer-col h5{font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:20px;letter-spacing:.1em;text-transform:uppercase}
+.footer-col a{display:block;font-size:0.8125rem;padding:5px 0;transition:var(--tr);font-weight:500}
+.footer-col a:hover{color:var(--teal-light);transform:translateX(3px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;font-weight:500}
+.footer-socials{display:flex;gap:16px}
+.footer-socials a{font-size:1.125rem;color:rgba(255,255,255,.4);transition:var(--tr)}
+.footer-socials a:hover{color:var(--teal-light);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.12s}
+.reveal-delay-2{transition-delay:.24s}
+.reveal-delay-3{transition-delay:.36s}
+
+/* ═══════════════════════════════════════
+   MOBILE MENU
+   ═══════════════════════════════════════ */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:999;padding:80px 24px 24px;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:16px 20px;font-size:1rem;font-weight:600;color:var(--navy);border-radius:var(--r-md);transition:var(--tr)}
+.mobile-menu a:hover{background:var(--bg)}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--navy)}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-grid,.about-grid,.product-hero,.how-grid,.contact-grid,.founder-card{grid-template-columns:1fr;gap:40px}
+  .hero-visual{order:-1}
+  .founder-card{grid-template-columns:200px 1fr;padding:36px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-inner{padding:32px;grid-template-columns:repeat(2,1fr);gap:24px}
+}
+@media(max-width:768px){
+  .nav{display:none}
+  .mobile-toggle{display:flex}
+  .hero{padding:120px 0 80px}
+  .hero-screen-float{display:none}
+  .product-screens,.tele-screens{grid-template-columns:1fr}
+  .product-ads{grid-template-columns:1fr 1fr}
+  .founder-card{grid-template-columns:1fr;text-align:center}
+  .founder-photo{max-width:200px;margin:0 auto}
+  .founder-links{justify-content:center}
+  .stats-inner{grid-template-columns:repeat(2,1fr);padding:24px}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .section{padding:80px 0}
+  .section-header{margin-bottom:48px}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .stats-inner{grid-template-columns:1fr;gap:16px;padding:24px}
+  .products-tabs{gap:6px}
+  .tab-btn{padding:10px 18px;font-size:0.8125rem}
+  .product-ads{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column}
+  .hero-buttons .btn{width:100%;justify-content:center}
+  .cta-buttons{flex-direction:column;align-items:center}
+  .cta-buttons .btn{width:100%;max-width:300px;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════ -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <img src="img/logo-real.png" alt="Emediquality Logo">
+    </a>
+    <nav class="nav">
+      <a href="#about">Hakkımızda</a>
+      <a href="#products">Ürünler</a>
+      <a href="#how-it-works">Nasıl Çalışır</a>
+      <a href="#founder">Kurucu</a>
+      <a href="#contact">İletişim</a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-btn">
+        <i class="ph ph-globe-simple"></i>
+        EN
+      </button>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 24px;font-size:.8125rem">Demo Talep Et</a>
+      <button class="mobile-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('open')" aria-label="Kapat">
+    <i class="ph ph-x"></i>
+  </button>
+  <a href="#about" onclick="this.parentElement.classList.remove('open')">Hakkımızda</a>
+  <a href="#products" onclick="this.parentElement.classList.remove('open')">Ürünler</a>
+  <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">Nasıl Çalışır</a>
+  <a href="#founder" onclick="this.parentElement.classList.remove('open')">Kurucu</a>
+  <a href="#contact" onclick="this.parentElement.classList.remove('open')">İletişim</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-grid-pattern"></div>
+  <div class="hero-gradient"></div>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="ph-fill ph-cpu"></i>
+        <span>AI Destekli Saglik Teknolojisi</span>
+      </div>
+      <h1 class="display">
+        Saglik Hizmetlerinde <span class="accent">Yapay Zeka</span> ile <span class="gold">Yeni Donem</span>
+      </h1>
+      <p class="hero-text">
+        Radyoloji raporlamadan telemedisin platformlarina, klinik otomasyondan veri analitigine — saglik sektorunun dijital donusumune onculuk ediyoruz.
+      </p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">
+          Urunleri Kesfet
+          <i class="ph ph-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="ph ph-play-circle"></i>
+          Demo Talep Et
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <i class="ph-fill ph-shield-check"></i>
+          KVKK Uyumlu
+        </div>
+        <div class="hero-trust-item">
+          <i class="ph-fill ph-buildings"></i>
+          Ulutek Teknokent
+        </div>
+        <div class="hero-trust-item">
+          <i class="ph-fill ph-certificate"></i>
+          TUBITAK AR-GE
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="img/raportai-screen-dashboard.png" alt="RaportAI Dashboard" class="hero-screen-main">
+      <img src="img/raportai-screen-reporting.png" alt="RaportAI Raporlama" class="hero-screen-float">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     STATS BAR
+     ═══════════════════════════════════════ -->
+<div class="stats">
+  <div class="container">
+    <div class="stats-inner reveal">
+      <div class="stat">
+        <div class="stat-value"><span class="teal">3</span> Platform</div>
+        <div class="stat-label">Entegre saglik cozumu</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value"><span class="teal">2+</span> Ulke</div>
+        <div class="stat-label">Turkiye & Azerbaycan</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">AI <span class="teal">Odakli</span></div>
+        <div class="stat-label">AR-GE yatirimi</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value"><span class="teal">2025</span></div>
+        <div class="stat-label">Kurulus yili</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Hakkimizda</span>
+      <h2 class="h2">Teknolojiyle Sagligi Birlestiriyoruz</h2>
+      <p>Emediquality, saglik sektorunun dijital donusumu icin yapay zeka destekli yazilim cozumleri gelistiren bir saglik teknolojisi sirketidir.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <span class="label">Sirket Profili</span>
+        <h3 class="h3">Emediquality Tele Saglik Yazilim Ltd.</h3>
+        <p>
+          Saglik profesyonellerinin is akislarini optimize eden, hasta bakim kalitesini artiran ve klinik surecleri dijitallestiren yazilim cozumleri uretiyoruz. Yapay zeka ve modern yazilim mimarileri ile saglik teknolojisinin gelecegini sekillendiriyoruz.
+        </p>
+        <div class="about-card-location">
+          <i class="ph-fill ph-map-pin"></i>
+          Bursa Uludag Universitesi Ulutek Teknokent
+        </div>
+      </div>
+      <div class="about-features">
+        <div class="about-feature reveal reveal-delay-1">
+          <div class="about-feature-icon ai">
+            <i class="ph-duotone ph-brain"></i>
+          </div>
+          <div>
+            <h4>Yapay Zeka Entegrasyonu</h4>
+            <p>Klinik karar destek sistemleri, otomatik raporlama ve goruntu analizi icin ileri AI modelleri gelistiriyoruz.</p>
+          </div>
+        </div>
+        <div class="about-feature reveal reveal-delay-2">
+          <div class="about-feature-icon security">
+            <i class="ph-duotone ph-shield-checkered"></i>
+          </div>
+          <div>
+            <h4>Veri Guvenligi & Uyumluluk</h4>
+            <p>KVKK, HIPAA ve uluslararasi saglik veri standartlarina tam uyumluluk. Uctan uca sifreli veri iletisimi.</p>
+          </div>
+        </div>
+        <div class="about-feature reveal reveal-delay-3">
+          <div class="about-feature-icon integration">
+            <i class="ph-duotone ph-plugs-connected"></i>
+          </div>
+          <div>
+            <h4>Sistem Entegrasyonu</h4>
+            <p>HBYS, PACS, RIS ve mevcut hastane altyapilariyla sorunsuz entegrasyon. HL7 FHIR standart destegi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRODUCTS
+     ═══════════════════════════════════════ -->
+<section class="section section-alt" id="products">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Urunlerimiz</span>
+      <h2 class="h2">Saglik Profesyonelleri Icin Tasarlandi</h2>
+      <p>Her biri kendi alaninda uzmanlasmis, birbirleriyle entegre calisan uc platform.</p>
+    </div>
+
+    <div class="products-tabs reveal">
+      <button class="tab-btn active" data-tab="raportai">
+        <img src="img/raportai-logo.png" alt="RaportAI">
+        RaportAI
+      </button>
+      <button class="tab-btn" data-tab="telesaglamliq">
+        <i class="ph-duotone ph-video-camera" style="font-size:1.25rem"></i>
+        TeleSaglamliq
+      </button>
+      <button class="tab-btn" data-tab="senar">
+        <i class="ph-duotone ph-hospital" style="font-size:1.25rem"></i>
+        Senar
+        <span class="coming">Yakinda</span>
+      </button>
+    </div>
+
+    <!-- RaportAI -->
+    <div class="tab-panel active" id="tab-raportai">
+      <div class="product-hero reveal">
+        <div class="product-hero-content">
+          <span class="label">AI Radyoloji Raporlama</span>
+          <h3 class="h2">RaportAI</h3>
+          <p>Yapay zeka destekli radyoloji raporlama platformu. Sesli dikte ile saniyeler icinde yapilandirilmis, klinik standartlara uygun raporlar uretir. 180+ sablon, 6 dil destegi, %99+ dogruluk orani.</p>
+          <ul class="product-features-list">
+            <li><i class="ph-fill ph-check-circle"></i> Sesli dikte & otomatik raporlama</li>
+            <li><i class="ph-fill ph-check-circle"></i> PACS / HBYS entegrasyonu</li>
+            <li><i class="ph-fill ph-check-circle"></i> 180+ yapilandirilmis sablon</li>
+            <li><i class="ph-fill ph-check-circle"></i> 6 dil destegi, %99+ dogruluk</li>
+            <li><i class="ph-fill ph-check-circle"></i> Radyolog onay is akisi</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://raportai.com" target="_blank" rel="noopener" class="btn btn-primary">
+              raportai.com
+              <i class="ph ph-arrow-square-out"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Demo Talep Et
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="product-screens">
+          <div class="product-screen">
+            <img src="img/raportai-screen-reporting.png" alt="RaportAI Raporlama">
+          </div>
+          <div class="product-screen">
+            <img src="img/raportai-screen-dashboard.png" alt="RaportAI Dashboard">
+          </div>
+        </div>
+      </div>
+      <div class="product-ads reveal">
+        <div class="product-ad">
+          <img src="img/raportai-ad-1.jpg" alt="RaportAI Tanitim">
+        </div>
+        <div class="product-ad">
+          <img src="img/raportai-ad-2.jpg" alt="RaportAI Tanitim">
+        </div>
+        <div class="product-ad">
+          <img src="img/raportai-ad-3.jpg" alt="RaportAI Tanitim">
+        </div>
+      </div>
+    </div>
+
+    <!-- TeleSaglamliq -->
+    <div class="tab-panel" id="tab-telesaglamliq">
+      <div class="product-hero reveal">
+        <div class="product-hero-content">
+          <span class="label">Telemedisin Platformu</span>
+          <h3 class="h2">TeleSaglamliq</h3>
+          <p>Azerbaycan'in ilk telemedisin platformu. Video konsultasyon, 4 dil destegi, Stripe odeme entegrasyonu. Turkiye ve Azerbaycan'da saglik hizmetlerini dijitallestiriyor.</p>
+          <ul class="product-features-list">
+            <li><i class="ph-fill ph-check-circle"></i> HD video konsultasyon</li>
+            <li><i class="ph-fill ph-check-circle"></i> 4 dil destegi (TR, AZ, EN, RU)</li>
+            <li><i class="ph-fill ph-check-circle"></i> Randevu & hasta yonetimi</li>
+            <li><i class="ph-fill ph-check-circle"></i> Stripe odeme entegrasyonu</li>
+            <li><i class="ph-fill ph-check-circle"></i> Mobil uyumlu tasarim</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://telesaglamliq.com" target="_blank" rel="noopener" class="btn btn-primary">
+              telesaglamliq.com
+              <i class="ph ph-arrow-square-out"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Demo Talep Et
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="tele-hero-img">
+          <img src="img/telesaglamliq-hero.png" alt="TeleSaglamliq Platform">
+        </div>
+      </div>
+      <div class="tele-screens reveal">
+        <div class="tele-screen">
+          <img src="img/telesaglamliq-features.png" alt="TeleSaglamliq Ozellikler">
+        </div>
+        <div class="tele-screen">
+          <img src="img/telesaglamliq-screen.png" alt="TeleSaglamliq Ekran">
+        </div>
+      </div>
+    </div>
+
+    <!-- Senar -->
+    <div class="tab-panel" id="tab-senar">
+      <div class="senar-placeholder reveal">
+        <i class="ph-duotone ph-rocket-launch"></i>
+        <h3 class="h3">Senar — Klinik Is Akisi Platformu</h3>
+        <p>Poliklinikler ve ozel klinikler icin kapsamli otomasyon cozumu. Randevu, hasta takibi, faturalandirma ve raporlama modulleriyle yakinda hizmetinizde.</p>
+        <br>
+        <a href="#contact" class="btn btn-gold">
+          Erken Erisim Icin Kaydolun
+          <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+     ═══════════════════════════════════════ -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Nasil Calisir</span>
+      <h2 class="h2">Bes Adimda AI Raporlama</h2>
+      <p>RaportAI, radyoloji is akisiniza sorunsuz entegre olur ve raporlama surecinizi hizlandirir.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-image reveal">
+        <img src="img/raportai-how-it-works.png" alt="RaportAI Nasil Calisir">
+      </div>
+      <div class="how-steps reveal">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div>
+            <h4>Ses Kaydi</h4>
+            <p>Radyolog, bulgularini sesli olarak dikte eder. Sistem otomatik olarak sesi yakalar.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div>
+            <h4>AI Transkripsiyon</h4>
+            <p>Yapay zeka modelleri sesi metne cevirir, tibbi terminolojiyi dogru sekilde tanir.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div>
+            <h4>Rapor Islenmesi</h4>
+            <p>Metin yapilandirilmis rapor sablonlarina donusturulur, klinik terminoloji ile zenginlestirilir.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <div>
+            <h4>Doktor Onayi</h4>
+            <p>Uzman radyolog raporu inceler, gerekli duzenlemeyi yapar ve onaylar.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">5</div>
+          <div>
+            <h4>Rapor Paylasimi</h4>
+            <p>Onaylanan rapor ilgili hekime iletilir, PACS ve HBYS'ye otomatik arsivlenir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOUNDER
+     ═══════════════════════════════════════ -->
+<section class="section section-alt" id="founder">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Kurucu</span>
+      <h2 class="h2">Vizyon & Liderlik</h2>
+    </div>
+    <div class="founder-card reveal">
+      <div class="founder-photo">
+        <img src="img/hakan-kilic.jpg" alt="Hakan Kilic">
+      </div>
+      <div class="founder-info">
+        <span class="label">Kurucu & CEO</span>
+        <h3 class="h3">Hakan Kilic</h3>
+        <p class="role">Biyomedikal Muhendisi — Saglik Teknolojisi Girisimci</p>
+        <p>
+          Biyomedikal muhendisligi altyapisi ve saglik sektorundeki deneyimiyle Emediquality'yi kurdu. Yapay zeka ve yazilim teknolojilerini saglik hizmetleriyle bulusturarak, klinisyenlerin gunluk is akislarini iyilestirmeyi ve hasta bakim kalitesini artirmayi hedefliyor. Turkiye ve Azerbaycan'da saglik dijitallesmesinee katki sagliyor.
+        </p>
+        <div class="founder-links">
+          <a href="https://www.linkedin.com/in/hakan-k%C4%B1l%C4%B1%C3%A7-104990312" target="_blank" rel="noopener" class="founder-link">
+            <i class="fa-brands fa-linkedin-in"></i>
+            LinkedIn
+          </a>
+          <a href="mailto:info@emediquality.com" class="founder-link">
+            <i class="ph ph-envelope-simple"></i>
+            E-posta
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Iletisim</span>
+      <h2 class="h2">Projeleriniz Icin Bize Ulasin</h2>
+      <p>Urunlerimiz hakkinda bilgi almak, demo talep etmek veya is birligi firsatlarini degerlendirmek icin formu doldurun.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="ph-duotone ph-map-pin"></i>
+          </div>
+          <div>
+            <h4>Ofis Adresi</h4>
+            <p>Bursa Uludag Universitesi<br>Ulutek Teknokent, Gorukle/Bursa</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="ph-duotone ph-envelope-simple"></i>
+          </div>
+          <div>
+            <h4>E-posta</h4>
+            <p><a href="mailto:info@emediquality.com">info@emediquality.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="ph-duotone ph-globe-simple"></i>
+          </div>
+          <div>
+            <h4>Web</h4>
+            <p><a href="https://emediquality.com">emediquality.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="ph-duotone ph-clock"></i>
+          </div>
+          <div>
+            <h4>Calisma Saatleri</h4>
+            <p>Pazartesi – Cuma: 09:00 – 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <form onsubmit="event.preventDefault();this.querySelector('button[type=submit]').textContent='Gonderildi!';this.querySelector('button[type=submit]').style.background='var(--teal-dark)';">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ad Soyad</label>
+              <input type="text" placeholder="Adiniz Soyadiniz" required>
+            </div>
+            <div class="form-group">
+              <label>E-posta</label>
+              <input type="email" placeholder="ornek@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Kurum</label>
+              <input type="text" placeholder="Hastane / Klinik Adi">
+            </div>
+            <div class="form-group">
+              <label>Ilgilendiginiz Urun</label>
+              <select>
+                <option value="">Seciniz</option>
+                <option value="raportai">RaportAI</option>
+                <option value="telesaglamliq">TeleSaglamliq</option>
+                <option value="senar">Senar</option>
+                <option value="hepsi">Tum Urunler</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Mesajiniz</label>
+            <textarea placeholder="Projeniz veya ihtiyaciniz hakkinda kisaca bilgi verin..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+            Mesaj Gonder
+            <i class="ph ph-paper-plane-tilt"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA BANNER
+     ═══════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="container cta-inner">
+    <h2 class="h2" style="color:var(--white)">Saglik Teknolojisinde Bir Adim One Gecin</h2>
+    <p>Yapay zeka destekli cozumlerimizle klinik is akisinizi donusturun.</p>
+    <div class="cta-buttons">
+      <a href="#contact" class="btn btn-primary">
+        Ucretsiz Demo
+        <i class="ph ph-arrow-right"></i>
+      </a>
+      <a href="#products" class="btn btn-secondary">
+        Urunleri Inceleyin
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-real.png" alt="Emediquality" style="filter:brightness(0) invert(1);opacity:.7">
+        <p>Yapay zeka destekli saglik teknolojisi cozumleri ile saglik hizmetlerinin dijital donusumune onculuk ediyoruz.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Urunler</h5>
+        <a href="https://raportai.com" target="_blank" rel="noopener">RaportAI</a>
+        <a href="https://telesaglamliq.com" target="_blank" rel="noopener">TeleSaglamliq</a>
+        <a href="#products">Senar</a>
+      </div>
+      <div class="footer-col">
+        <h5>Sirket</h5>
+        <a href="#about">Hakkimizda</a>
+        <a href="#founder">Kurucu</a>
+        <a href="#how-it-works">Nasil Calisir</a>
+        <a href="#contact">Iletisim</a>
+      </div>
+      <div class="footer-col">
+        <h5>Iletisim</h5>
+        <a href="mailto:info@emediquality.com">info@emediquality.com</a>
+        <a>Ulutek Teknokent, Bursa</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Emediquality Tele Saglik Yazilim Ltd. Sti. Tum haklari saklidir.</span>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/hakan-k%C4%B1l%C4%B1%C3%A7-104990312" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/helezon77" target="_blank" rel="noopener" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════ -->
+<script>
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu if open
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  });
+});
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Scroll reveal with IntersectionObserver
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
