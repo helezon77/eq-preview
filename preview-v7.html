@@ -91,7 +91,8 @@ ul{list-style:none}
 .header.scrolled{background:rgba(249,250,251,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 var(--border);padding:14px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:10px}
-.logo img{height:40px;width:auto}
+.logo{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-start}
+.logo img{height:48px;width:auto}
 .nav{display:flex;align-items:center;gap:36px}
 .nav a{font-size:0.8125rem;font-weight:500;color:var(--gray-500);position:relative;padding:4px 0}
 .nav a::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:1.5px;background:var(--charcoal);border-radius:1px;transition:all .3s var(--ease);transform:translateX(-50%)}
@@ -349,7 +350,6 @@ ul{list-style:none}
         <i class="ph ph-globe-simple"></i>
         EN
       </button>
-      <a href="#contact" class="btn btn-primary" style="padding:10px 22px;font-size:.8125rem">Demo Talep Et</a>
       <button class="mobile-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -379,7 +379,7 @@ ul{list-style:none}
         Sağlık Hizmetlerinde <span class="accent">Yapay Zeka</span> ile Yeni Dönem
       </h1>
       <p class="hero-text">
-        Radyoloji raporlamadan telemedisin platformlarına, klinik otomasyondan veri analitiğine — sağlık sektörünün dijital dönüşümüne öncülük ediyoruz.
+        Yapay zeka destekli yazılımlarla sağlık profesyonellerinin dijital dönüşümünü hızlandırıyoruz.
       </p>
       <div class="hero-buttons">
         <a href="#products" class="btn btn-primary">
@@ -387,7 +387,7 @@ ul{list-style:none}
           <i class="ph ph-arrow-right"></i>
         </a>
         <a href="#contact" class="btn btn-secondary">
-          Demo Talep Et
+          İletişime Geç
         </a>
       </div>
     </div>
@@ -398,31 +398,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     STATS BAR
-     ═══════════════════════════════════════ -->
-<div class="stats">
-  <div class="container">
-    <div class="stats-inner reveal">
-      <div class="stat">
-        <div class="stat-value"><span class="teal">3</span> Platform</div>
-        <div class="stat-label">Entegre sağlık çözümu</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value"><span class="teal">2+</span> Ülke</div>
-        <div class="stat-label">Türkiye & Azerbaycan</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">AI <span class="teal">Odaklı</span></div>
-        <div class="stat-label">AR-GE yatırımı</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value"><span class="teal">2025</span></div>
-        <div class="stat-label">Kuruluş yılı</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ═══════════════════════════════════════
      ABOUT
@@ -431,8 +406,8 @@ ul{list-style:none}
   <div class="container">
     <div class="section-header reveal">
       <span class="label">Hakkımızda</span>
-      <h2 class="h2">Teknolojiyle Sağlığı Birleştiriyoruz</h2>
-      <p>Emediquality, sağlık sektörünün dijital dönüşümu için yapay zeka destekli yazılım çözümleri geliştiren bir sağlık teknolojisi şirketidir.</p>
+      <h2 class="h2">Sağlık Yazılımında Uzmanlaşmış Bir Teknokent Girişimi</h2>
+      <p>Uludağ Üniversitesi Teknokent bünyesinde sağlık sektörüne yönelik yapay zeka destekli yazılımlar geliştirmekteyiz.</p>
     </div>
     <div class="about-grid">
       <div class="about-card reveal">
@@ -486,8 +461,8 @@ ul{list-style:none}
   <div class="container">
     <div class="section-header reveal">
       <span class="label">Ürünlerimiz</span>
-      <h2 class="h2">Sağlık Profesyonelleri İçin Tasarlandı</h2>
-      <p>Her biri kendi alanında uzmanlaşmış, birbirleriyle entegre çalışan üç platform.</p>
+      <h2 class="h2">Geliştirdiğimiz Platformlar</h2>
+      <p>Sağlık profesyonellerinin ihtiyaçlarına yönelik üç platform.</p>
     </div>
 
     <div class="products-tabs reveal">
@@ -526,7 +501,7 @@ ul{list-style:none}
               <i class="ph ph-arrow-square-out"></i>
             </a>
             <a href="#contact" class="btn btn-outline">
-              Demo Talep Et
+              İletişime Geç
               <i class="ph ph-arrow-right"></i>
             </a>
           </div>
@@ -573,7 +548,7 @@ ul{list-style:none}
               <i class="ph ph-arrow-square-out"></i>
             </a>
             <a href="#contact" class="btn btn-outline">
-              Demo Talep Et
+              İletişime Geç
               <i class="ph ph-arrow-right"></i>
             </a>
           </div>
@@ -600,7 +575,7 @@ ul{list-style:none}
         <p>Poliklinikler ve özel klinikler için kapsamlı otomasyon çözümu. Randevu, hasta takibi, faturalandırma ve raporlama modülleriyle yakında hizmetinizde.</p>
         <br>
         <a href="#contact" class="btn btn-primary">
-          Erken Erişim İçin Kaydolun
+          Bilgi Alın
           <i class="ph ph-arrow-right"></i>
         </a>
       </div>
@@ -670,7 +645,7 @@ ul{list-style:none}
   <div class="container">
     <div class="section-header reveal">
       <span class="label">Kurucu</span>
-      <h2 class="h2">Vizyon & Liderlik</h2>
+      <h2 class="h2">Ekibimiz</h2>
     </div>
     <div class="founder-card reveal">
       <div class="founder-photo">
@@ -679,9 +654,9 @@ ul{list-style:none}
       <div class="founder-info">
         <span class="label">Kurucu & CEO</span>
         <h3 class="h3">Hakan Kılıç</h3>
-        <p class="role">Biyomedikal Mühendisi — Sağlık Teknolojisi Girişimci</p>
+        <p class="role">Emediquality Tele Sağlık Yazılım Ltd.</p>
         <p>
-          Biyomedikal mühendisliği altyapısı ve sağlık sektöründeki deneyimiyle Emediquality'yi kurdu. Yapay zeka ve yazılım teknolojilerini sağlık hizmetleriyle buluşturarak, klinisyenlerin günlük iş akışlarını iyileştirmeyi ve hasta bakım kalitesini artırmayı hedefliyor. Türkiye ve Azerbaycan'da sağlık dijitalleşmeye katkı sağlıyor.
+          Sağlık bilişimi ve yapay zeka alanında uzmanlaşmış yazılım girişimcisi. Uludağ Üniversitesi Teknokent bünyesinde radyoloji raporlama, telemedisin ve klinik otomasyon alanlarında yenilikçi çözümler geliştirmektedir.
         </p>
         <div class="founder-links">
           <a href="https://www.linkedin.com/in/hakan-k%C4%B1l%C4%B1%C3%A7-104990312" target="_blank" rel="noopener" class="founder-link">
@@ -705,8 +680,8 @@ ul{list-style:none}
   <div class="container">
     <div class="section-header reveal">
       <span class="label">İletişim</span>
-      <h2 class="h2">Projeleriniz İçin Bize Ulaşın</h2>
-      <p>Ürünlerimiz hakkında bilgi almak, demo talep etmek veya iş birliği fırsatlarını değerlendirmek için formu doldurun.</p>
+      <h2 class="h2">Bize Ulaşın</h2>
+      <p>Ürünlerimiz hakkında bilgi almak veya iş birliği fırsatlarını değerlendirmek için bize yazın.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
