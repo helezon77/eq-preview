@@ -173,7 +173,8 @@ ul{list-style:none}
 .tab-btn{display:flex;align-items:center;gap:10px;padding:12px 24px;border-radius:var(--r-md);font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;border:1px solid var(--border);background:var(--white);color:var(--gray-500);cursor:pointer;transition:all .3s var(--ease)}
 .tab-btn:hover{border-color:var(--gray-400);color:var(--charcoal)}
 .tab-btn.active{color:var(--white);box-shadow:var(--sh-md)}
-.tab-btn .tab-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s var(--ease)}
+.tab-btn .tab-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s var(--ease);overflow:hidden}
+.tab-btn .tab-icon img{width:100%;height:100%;object-fit:contain}
 .tab-btn .coming{font-size:0.625rem;padding:3px 10px;background:var(--medisociai);color:var(--white);border-radius:var(--r-sm);font-weight:700;letter-spacing:.02em}
 
 /* Product-specific tab colors */
@@ -243,19 +244,6 @@ ul{list-style:none}
 /* Product screens 3-col for Senaris */
 .product-screens-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:48px}
 .product-screens-3 .product-screen{background:var(--white)}
-
-/* ═══════════════════════════════════════
-   HOW IT WORKS
-   ═══════════════════════════════════════ */
-.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.how-image{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
-.how-steps{display:flex;flex-direction:column;gap:4px}
-.how-step{display:flex;gap:20px;padding:20px;border-radius:var(--r-md);transition:all .35s var(--ease);cursor:default}
-.how-step:hover{background:var(--white);box-shadow:var(--sh-sm)}
-.how-step-num{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:500;font-size:0.9375rem;color:var(--charcoal);transition:all .35s var(--ease)}
-.how-step:hover .how-step-num{background:var(--raportai);color:var(--white)}
-.how-step h4{font-family:'Manrope',sans-serif;font-size:0.9375rem;font-weight:600;color:var(--charcoal);margin-bottom:4px}
-.how-step p{font-size:0.8125rem;color:var(--gray-500);line-height:1.7;font-weight:400}
 
 /* ═══════════════════════════════════════
    FOUNDER
@@ -377,7 +365,6 @@ ul{list-style:none}
     <nav class="nav">
       <a href="#about">Hakkımızda</a>
       <a href="#products">Platformlar</a>
-      <a href="#how-it-works">Nasıl Çalışır</a>
       <a href="#founder">Kurucu</a>
       <a href="#contact">İletişim</a>
     </nav>
@@ -400,7 +387,6 @@ ul{list-style:none}
   </button>
   <a href="#about" onclick="this.parentElement.classList.remove('open')">Hakkımızda</a>
   <a href="#products" onclick="this.parentElement.classList.remove('open')">Platformlar</a>
-  <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">Nasıl Çalışır</a>
   <a href="#founder" onclick="this.parentElement.classList.remove('open')">Kurucu</a>
   <a href="#contact" onclick="this.parentElement.classList.remove('open')">İletişim</a>
 </div>
@@ -538,19 +524,19 @@ ul{list-style:none}
 
     <div class="products-tabs reveal">
       <button class="tab-btn active" data-tab="raportai">
-        <span class="tab-icon"><i class="ph-duotone ph-microphone"></i></span>
+        <span class="tab-icon"><img src="img/raportai-logo-icon.png" alt="RaportAI"></span>
         RaportAI
       </button>
       <button class="tab-btn" data-tab="telesaglamliq">
-        <span class="tab-icon"><i class="ph-duotone ph-video-camera"></i></span>
+        <span class="tab-icon"><img src="img/telesaglamliq-logo.png" alt="TeleSağlamlıq"></span>
         TeleSağlamlıq
       </button>
       <button class="tab-btn" data-tab="senaris">
-        <span class="tab-icon"><i class="ph-duotone ph-hospital"></i></span>
+        <span class="tab-icon"><img src="img/senaris-logo.png" alt="Senaris"></span>
         Senaris
       </button>
       <button class="tab-btn" data-tab="medisociai">
-        <span class="tab-icon"><i class="ph-duotone ph-share-network"></i></span>
+        <span class="tab-icon"><img src="img/medisociai-logo.png" alt="MediSociAI"></span>
         MediSociAI
         <span class="coming">Yakında</span>
       </button>
@@ -717,61 +703,6 @@ ul{list-style:none}
 </section>
 
 <!-- ═══════════════════════════════════════
-     HOW IT WORKS
-     ═══════════════════════════════════════ -->
-<section class="section" id="how-it-works">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="label">Nasıl Çalışır</span>
-      <h2 class="h2">Beş Adımda AI Raporlama</h2>
-      <p>RaportAI, radyoloji iş akışınıza sorunsuz entegre olur ve raporlama sürecinizi hızlandırır.</p>
-    </div>
-    <div class="how-grid">
-      <div class="how-image reveal">
-        <img src="img/raportai-how-it-works.png" alt="RaportAI Nasıl Çalışır">
-      </div>
-      <div class="how-steps reveal">
-        <div class="how-step">
-          <div class="how-step-num">1</div>
-          <div>
-            <h4>Ses Kaydı</h4>
-            <p>Radyolog, bulgularını sesli olarak dikte eder. Sistem otomatik olarak sesi yakalar.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">2</div>
-          <div>
-            <h4>AI Transkripsiyon</h4>
-            <p>Yapay zeka modelleri sesi metne çevirir, tıbbi terminolojiyi doğru şekilde tanır.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">3</div>
-          <div>
-            <h4>Rapor İşlenmesi</h4>
-            <p>Metin yapılandırılmış rapor şablonlarına dönüştürülür, klinik terminoloji ile zenginleştirilir.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">4</div>
-          <div>
-            <h4>Doktor Onayı</h4>
-            <p>Uzman radyolog raporu inceler, gerekli düzenlemeyi yapar ve onaylar.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">5</div>
-          <div>
-            <h4>Rapor Paylaşımı</h4>
-            <p>Onaylanan rapor ilgili hekime iletilir, PACS ve HBYS'ye otomatik arşivlenir.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
      FOUNDER
      ═══════════════════════════════════════ -->
 <section class="section section-alt" id="founder">
@@ -919,7 +850,6 @@ ul{list-style:none}
         <h5>Şirket</h5>
         <a href="#about">Hakkımızda</a>
         <a href="#founder">Kurucu</a>
-        <a href="#how-it-works">Nasıl Çalışır</a>
         <a href="#contact">İletişim</a>
       </div>
       <div class="footer-col">
