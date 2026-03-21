@@ -19,26 +19,29 @@
    ═══════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* Primary — Logo-based monochrome palette */
   --charcoal:#1a1a2e;
   --charcoal-deep:#12121f;
   --charcoal-mid:#222238;
   --charcoal-light:#2d2d45;
-  /* Secondary — from "MEDİKAL YAZILIM" tone */
   --gray-secondary:#6b7280;
-  /* Accent — muted slate, logo-aligned */
   --accent:#475569;
   --accent-light:#64748b;
   --accent-dark:#334155;
   --accent-glow:rgba(71,85,105,.07);
-  /* Product-specific accents */
-  --raportai:#2563eb;
-  --raportai-glow:rgba(37,99,235,.08);
-  --telesaglamliq:#0d9488;
-  --telesaglamliq-glow:rgba(13,148,136,.08);
-  --senar:#d97706;
-  --senar-glow:rgba(217,119,6,.08);
-  /* Surfaces — no pure white */
+  /* Product-specific accents — pastel-friendly */
+  --raportai:#3b82f6;
+  --raportai-pastel:#93bbfd;
+  --raportai-glow:rgba(59,130,246,.10);
+  --telesaglamliq:#14b8a6;
+  --telesaglamliq-pastel:#5eead4;
+  --telesaglamliq-glow:rgba(20,184,166,.10);
+  --senaris:#f59e0b;
+  --senaris-pastel:#fcd34d;
+  --senaris-glow:rgba(245,158,11,.10);
+  --medisociai:#ec4899;
+  --medisociai-pastel:#f9a8d4;
+  --medisociai-glow:rgba(236,72,153,.10);
+  /* Surfaces */
   --surface:#f9fafb;
   --surface-alt:#f3f4f6;
   --white:#ffffff;
@@ -46,17 +49,13 @@
   --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
   --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;
   --gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;
-  /* Border */
   --border:#e5e7eb;
-  /* Radius — no pills */
   --r-sm:8px;--r-md:10px;--r-lg:16px;--r-xl:20px;
-  /* Shadows — subtle */
   --sh-xs:0 1px 2px rgba(0,0,0,.04);
   --sh-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
   --sh-md:0 4px 12px rgba(0,0,0,.06);
   --sh-lg:0 8px 30px rgba(0,0,0,.08);
   --sh-xl:0 20px 50px rgba(0,0,0,.10);
-  /* Misc */
   --ease:cubic-bezier(.4,0,.2,1);--tr:.3s var(--ease);
 }
 html{scroll-behavior:smooth;font-size:16px}
@@ -68,7 +67,7 @@ ul{list-style:none}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
 
 /* ═══════════════════════════════════════
-   TYPOGRAPHY — lighter weights
+   TYPOGRAPHY
    ═══════════════════════════════════════ */
 .display{font-size:clamp(2.5rem,5vw,3.75rem);letter-spacing:-0.03em;font-weight:500;line-height:1.08}
 .h1{font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.02em;font-weight:500}
@@ -79,7 +78,7 @@ ul{list-style:none}
 .label{font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500)}
 
 /* ═══════════════════════════════════════
-   BUTTONS — subtle radius, not pill
+   BUTTONS
    ═══════════════════════════════════════ */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:var(--r-md);font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;border:none;cursor:pointer;transition:all .3s var(--ease);white-space:nowrap;letter-spacing:.01em}
 .btn-primary{background:var(--charcoal);color:var(--white)}
@@ -88,17 +87,14 @@ ul{list-style:none}
 .btn-secondary:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);transform:translateY(-1px)}
 .btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--border)}
 .btn-outline:hover{border-color:var(--charcoal);color:var(--charcoal);transform:translateY(-1px)}
-.btn-subtle{background:var(--gray-100);color:var(--charcoal);font-weight:600}
-.btn-subtle:hover{background:var(--gray-200);transform:translateY(-1px)}
 
 /* ═══════════════════════════════════════
    HEADER
    ═══════════════════════════════════════ */
 .header{position:relative;z-index:1000;padding:16px 0;background:var(--surface);border-bottom:1px solid var(--border)}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px}
 .logo{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-start}
-.logo img{height:48px;width:auto}
+.logo img{height:72px;width:auto}
 .nav{display:flex;align-items:center;gap:36px}
 .nav a{font-size:0.8125rem;font-weight:500;color:var(--gray-500);position:relative;padding:4px 0}
 .nav a::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:1.5px;background:var(--charcoal);border-radius:1px;transition:all .3s var(--ease);transform:translateX(-50%)}
@@ -113,43 +109,48 @@ ul{list-style:none}
 .mobile-toggle span{display:block;width:22px;height:2px;background:var(--charcoal);border-radius:2px;transition:var(--tr)}
 
 /* ═══════════════════════════════════════
-   HERO — clean, minimal
+   HERO — Carousel slider
    ═══════════════════════════════════════ */
-.hero{position:relative;padding:100px 0 100px;background:var(--charcoal-deep);overflow:hidden}
-/* Single subtle gradient — no noise, no grid */
+.hero{position:relative;padding:100px 0 80px;background:var(--charcoal-deep);overflow:hidden}
 .hero::before{content:'';position:absolute;top:-30%;right:-15%;width:70%;height:90%;background:radial-gradient(ellipse at center,rgba(71,85,105,.06) 0%,transparent 60%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:50%;height:70%;background:radial-gradient(ellipse at center,rgba(45,55,95,.15) 0%,transparent 55%);pointer-events:none}
 
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
+.hero-content{text-align:center;position:relative;z-index:2;max-width:700px;margin:0 auto;margin-bottom:64px}
 .hero h1{color:var(--white);margin-bottom:24px;line-height:1.1}
 .hero h1 .accent{color:rgba(255,255,255,.7);font-style:italic}
-.hero-text{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.8;margin-bottom:40px;max-width:460px;font-weight:400}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.hero-visual{position:relative}
-.hero-screen-main{border-radius:var(--r-lg);box-shadow:0 32px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.04);transition:transform .7s var(--ease)}
-.hero-screen-float{position:absolute;bottom:-24px;left:-48px;width:55%;border-radius:var(--r-md);box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.04);transition:transform .7s var(--ease)}
-.hero-visual:hover .hero-screen-main{transform:translateY(-4px)}
-.hero-visual:hover .hero-screen-float{transform:translate(4px,-6px)}
+.hero-text{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.8;margin-bottom:40px;font-weight:400}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
-/* Stats bar removed */
+/* Carousel */
+.hero-carousel{position:relative;z-index:2;width:100%;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,black 15%,black 85%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 15%,black 85%,transparent 100%)}
+.hero-carousel-track{display:flex;gap:24px;animation:slideCarousel 24s linear infinite;width:max-content}
+.hero-carousel-track:hover{animation-play-state:paused}
+.hero-slide{flex-shrink:0;width:420px;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06);transition:all .5s var(--ease);filter:blur(1px) brightness(.85)}
+.hero-slide:hover{filter:blur(0) brightness(1);transform:scale(1.03)}
+.hero-slide img{width:100%;height:260px;object-fit:cover;display:block}
+.hero-slide-label{padding:10px 16px;background:rgba(255,255,255,.04);font-size:0.75rem;font-weight:600;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.04)}
+.hero-slide-label .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+@keyframes slideCarousel{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
 
 /* ═══════════════════════════════════════
-   SECTION DEFAULTS — clean, no decorative elements
+   SECTION DEFAULTS
    ═══════════════════════════════════════ */
 .section{padding:120px 0}
 .section-alt{background:var(--white)}
 .section-header{text-align:center;max-width:580px;margin:0 auto 80px}
 .section-header .label{margin-bottom:16px;display:inline-block}
 .section-header p{color:var(--gray-500);margin-top:16px;font-size:1rem;font-weight:400}
-/* No gradient underline — clean heading */
 .section-header h2{display:inline-block}
 
 /* ═══════════════════════════════════════
-   ABOUT — no glow effects
+   ABOUT
    ═══════════════════════════════════════ */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .about-card{background:var(--charcoal);border-radius:var(--r-xl);padding:48px;color:var(--white);position:relative;overflow:hidden}
-/* No ::before or ::after glow effects */
 .about-card .label{color:rgba(255,255,255,.5);margin-bottom:16px;display:inline-block}
 .about-card h3{color:var(--white);margin-bottom:16px}
 .about-card p{color:rgba(255,255,255,.55);font-size:0.9375rem;line-height:1.8;font-weight:400}
@@ -166,38 +167,65 @@ ul{list-style:none}
 .about-feature p{font-size:0.8125rem;color:var(--gray-500);line-height:1.7;font-weight:400}
 
 /* ═══════════════════════════════════════
-   PRODUCTS — Tab system
+   PRODUCTS — Tab system with 4 products
    ═══════════════════════════════════════ */
 .products-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:64px;flex-wrap:wrap}
 .tab-btn{display:flex;align-items:center;gap:10px;padding:12px 24px;border-radius:var(--r-md);font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;border:1px solid var(--border);background:var(--white);color:var(--gray-500);cursor:pointer;transition:all .3s var(--ease)}
 .tab-btn:hover{border-color:var(--gray-400);color:var(--charcoal)}
-.tab-btn.active{background:var(--charcoal);color:var(--white);border-color:var(--charcoal);box-shadow:var(--sh-md)}
-.tab-btn img{height:22px;width:auto;border-radius:4px}
-.tab-btn .coming{font-size:0.625rem;padding:3px 10px;background:var(--senar);color:var(--white);border-radius:var(--r-sm);font-weight:700;letter-spacing:.02em}
+.tab-btn.active{color:var(--white);box-shadow:var(--sh-md)}
+.tab-btn .tab-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s var(--ease)}
+.tab-btn .coming{font-size:0.625rem;padding:3px 10px;background:var(--medisociai);color:var(--white);border-radius:var(--r-sm);font-weight:700;letter-spacing:.02em}
+
 /* Product-specific tab colors */
+.tab-btn[data-tab="raportai"] .tab-icon{background:var(--raportai-glow);color:var(--raportai)}
+.tab-btn[data-tab="telesaglamliq"] .tab-icon{background:var(--telesaglamliq-glow);color:var(--telesaglamliq)}
+.tab-btn[data-tab="senaris"] .tab-icon{background:var(--senaris-glow);color:var(--senaris)}
+.tab-btn[data-tab="medisociai"] .tab-icon{background:var(--medisociai-glow);color:var(--medisociai)}
+
 .tab-btn[data-tab="raportai"].active{background:var(--raportai);border-color:var(--raportai)}
+.tab-btn[data-tab="raportai"].active .tab-icon{background:rgba(255,255,255,.2);color:var(--white)}
 .tab-btn[data-tab="telesaglamliq"].active{background:var(--telesaglamliq);border-color:var(--telesaglamliq)}
-.tab-btn[data-tab="senar"].active{background:var(--senar);border-color:var(--senar)}
+.tab-btn[data-tab="telesaglamliq"].active .tab-icon{background:rgba(255,255,255,.2);color:var(--white)}
+.tab-btn[data-tab="senaris"].active{background:var(--senaris);border-color:var(--senaris)}
+.tab-btn[data-tab="senaris"].active .tab-icon{background:rgba(255,255,255,.2);color:var(--white)}
+.tab-btn[data-tab="medisociai"].active{background:var(--medisociai);border-color:var(--medisociai)}
+.tab-btn[data-tab="medisociai"].active .tab-icon{background:rgba(255,255,255,.2);color:var(--white)}
+
 /* Product-specific content colors */
 #tab-raportai .product-features-list li i{color:var(--raportai)}
 #tab-raportai .btn-primary{background:var(--raportai)}
-#tab-raportai .btn-primary:hover{background:#1d4ed8;box-shadow:0 4px 16px rgba(37,99,235,.25)}
+#tab-raportai .btn-primary:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.25)}
 #tab-raportai .label{color:var(--raportai)}
+#tab-raportai .product-title-accent{color:var(--raportai-pastel)}
+
 #tab-telesaglamliq .product-features-list li i{color:var(--telesaglamliq)}
 #tab-telesaglamliq .btn-primary{background:var(--telesaglamliq)}
-#tab-telesaglamliq .btn-primary:hover{background:#0a7a70;box-shadow:0 4px 16px rgba(13,148,136,.25)}
+#tab-telesaglamliq .btn-primary:hover{background:#0d9488;box-shadow:0 4px 16px rgba(20,184,166,.25)}
 #tab-telesaglamliq .label{color:var(--telesaglamliq)}
-#tab-senar .btn-primary{background:var(--senar)}
-#tab-senar .btn-primary:hover{background:#b45309;box-shadow:0 4px 16px rgba(217,119,6,.25)}
+#tab-telesaglamliq .product-title-accent{color:var(--telesaglamliq-pastel)}
+
+#tab-senaris .product-features-list li i{color:var(--senaris)}
+#tab-senaris .btn-primary{background:var(--senaris)}
+#tab-senaris .btn-primary:hover{background:#d97706;box-shadow:0 4px 16px rgba(245,158,11,.25)}
+#tab-senaris .label{color:var(--senaris)}
+#tab-senaris .product-title-accent{color:var(--senaris-pastel)}
+
+#tab-medisociai .product-features-list li i{color:var(--medisociai)}
+#tab-medisociai .btn-primary{background:var(--medisociai)}
+#tab-medisociai .btn-primary:hover{background:#db2777;box-shadow:0 4px 16px rgba(236,72,153,.25)}
+#tab-medisociai .label{color:var(--medisociai)}
+#tab-medisociai .product-title-accent{color:var(--medisociai-pastel)}
+
 .tab-panel{display:none;animation:fadeUp .5s var(--ease)}
 .tab-panel.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
 /* Product Hero */
-.product-hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:64px}
+.product-hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .product-hero-content .label{margin-bottom:14px;display:inline-block}
 .product-hero-content h3{margin-bottom:16px}
 .product-hero-content p{color:var(--gray-500);font-size:0.9375rem;line-height:1.8;margin-bottom:28px;font-weight:400}
+.product-title-accent{font-style:italic;font-weight:500}
 .product-features-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
 .product-features-list li{display:flex;align-items:center;gap:10px;font-size:0.875rem;color:var(--gray-600);font-weight:500}
 .product-features-list li i{color:var(--accent);font-size:1.125rem}
@@ -205,10 +233,6 @@ ul{list-style:none}
 .product-screen{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);transition:all .4s var(--ease);background:var(--white)}
 .product-screen:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
 .product-screen img{width:100%;display:block}
-.product-ads{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
-.product-ad{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-sm);transition:all .35s var(--ease)}
-.product-ad:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
-.product-ad img{width:100%;display:block}
 
 /* TeleSağlamlıq Panel */
 .tele-hero-img{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
@@ -216,11 +240,9 @@ ul{list-style:none}
 .tele-screen{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);transition:all .35s var(--ease)}
 .tele-screen:hover{transform:translateY(-2px);box-shadow:var(--sh-lg)}
 
-/* Senar Panel */
-.senar-placeholder{text-align:center;padding:80px 40px;background:var(--white);border-radius:var(--r-xl);border:1px dashed var(--gray-300)}
-.senar-placeholder i{font-size:2.5rem;color:var(--gray-400);margin-bottom:20px;display:block}
-.senar-placeholder h3{margin-bottom:12px}
-.senar-placeholder p{color:var(--gray-500);max-width:420px;margin:0 auto;font-weight:400}
+/* Product screens 3-col for Senaris */
+.product-screens-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:48px}
+.product-screens-3 .product-screen{background:var(--white)}
 
 /* ═══════════════════════════════════════
    HOW IT WORKS
@@ -236,12 +258,11 @@ ul{list-style:none}
 .how-step p{font-size:0.8125rem;color:var(--gray-500);line-height:1.7;font-weight:400}
 
 /* ═══════════════════════════════════════
-   FOUNDER — no decorative ::after
+   FOUNDER
    ═══════════════════════════════════════ */
 .founder-card{display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:center;background:var(--white);border-radius:var(--r-xl);padding:56px;box-shadow:var(--sh-md)}
 .founder-photo{position:relative}
 .founder-photo img{border-radius:var(--r-lg);width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:var(--sh-sm)}
-/* No decorative ::after element */
 .founder-info .label{margin-bottom:14px;display:inline-block}
 .founder-info h3{margin-bottom:6px}
 .founder-info .role{color:var(--gray-400);font-size:0.875rem;margin-bottom:20px;font-weight:500}
@@ -307,18 +328,21 @@ ul{list-style:none}
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media(max-width:1024px){
-  .hero-grid,.about-grid,.product-hero,.how-grid,.contact-grid,.founder-card{grid-template-columns:1fr;gap:40px}
-  .hero-visual{order:-1}
+  .hero-content{margin-bottom:48px}
+  .about-grid,.product-hero,.how-grid,.contact-grid,.founder-card{grid-template-columns:1fr;gap:40px}
+  .hero-slide{width:320px}
   .founder-card{grid-template-columns:200px 1fr;padding:36px}
   .footer-grid{grid-template-columns:1fr 1fr}
+  .product-screens-3{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .nav{display:none}
   .mobile-toggle{display:flex}
-  .hero{padding:60px 0 60px}
-  .hero-screen-float{display:none}
+  .hero{padding:60px 0 48px}
+  .hero-slide{width:280px}
+  .hero-slide img{height:180px}
   .product-screens,.tele-screens{grid-template-columns:1fr}
-  .product-ads{grid-template-columns:1fr 1fr}
+  .product-screens-3{grid-template-columns:1fr}
   .founder-card{grid-template-columns:1fr;text-align:center}
   .founder-photo{max-width:200px;margin:0 auto}
   .founder-links{justify-content:center}
@@ -328,13 +352,15 @@ ul{list-style:none}
   .section{padding:80px 0}
   .section-header{margin-bottom:48px}
   .contact-grid{grid-template-columns:1fr}
+  .logo img{height:56px}
 }
 @media(max-width:480px){
   .products-tabs{gap:6px}
-  .tab-btn{padding:10px 18px;font-size:0.8125rem}
-  .product-ads{grid-template-columns:1fr}
+  .tab-btn{padding:10px 16px;font-size:0.8125rem}
   .hero-buttons{flex-direction:column}
   .hero-buttons .btn{width:100%;justify-content:center}
+  .hero-slide{width:240px}
+  .hero-slide img{height:150px}
 }
 </style>
 </head>
@@ -350,7 +376,7 @@ ul{list-style:none}
     </a>
     <nav class="nav">
       <a href="#about">Hakkımızda</a>
-      <a href="#products">Ürünler</a>
+      <a href="#products">Platformlar</a>
       <a href="#how-it-works">Nasıl Çalışır</a>
       <a href="#founder">Kurucu</a>
       <a href="#contact">İletişim</a>
@@ -373,17 +399,17 @@ ul{list-style:none}
     <i class="ph ph-x"></i>
   </button>
   <a href="#about" onclick="this.parentElement.classList.remove('open')">Hakkımızda</a>
-  <a href="#products" onclick="this.parentElement.classList.remove('open')">Ürünler</a>
+  <a href="#products" onclick="this.parentElement.classList.remove('open')">Platformlar</a>
   <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">Nasıl Çalışır</a>
   <a href="#founder" onclick="this.parentElement.classList.remove('open')">Kurucu</a>
   <a href="#contact" onclick="this.parentElement.classList.remove('open')">İletişim</a>
 </div>
 
 <!-- ═══════════════════════════════════════
-     HERO — clean, minimal
+     HERO — Carousel slider
      ═══════════════════════════════════════ -->
 <section class="hero">
-  <div class="container hero-grid">
+  <div class="container">
     <div class="hero-content">
       <h1 class="display">
         Sağlık Hizmetlerinde <span class="accent">Yapay Zeka</span> ile Yeni Dönem
@@ -393,7 +419,7 @@ ul{list-style:none}
       </p>
       <div class="hero-buttons">
         <a href="#products" class="btn btn-primary">
-          Ürünleri Keşfet
+          Platformları Keşfet
           <i class="ph ph-arrow-right"></i>
         </a>
         <a href="#contact" class="btn btn-secondary">
@@ -401,9 +427,44 @@ ul{list-style:none}
         </a>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="img/raportai-screen-dashboard.png" alt="RaportAI Dashboard" class="hero-screen-main">
-      <img src="img/raportai-screen-reporting.png" alt="RaportAI Raporlama" class="hero-screen-float">
+  </div>
+  <!-- Carousel -->
+  <div class="hero-carousel">
+    <div class="hero-carousel-track">
+      <!-- Original 4 -->
+      <div class="hero-slide">
+        <img src="img/raportai-screen-dashboard.png" alt="RaportAI">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--raportai)"></span> RaportAI</div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/telesaglamliq-hero.png" alt="TeleSağlamlıq">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--telesaglamliq)"></span> TeleSağlamlıq</div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/senaris-screen-dashboard.png" alt="Senaris">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--senaris)"></span> Senaris</div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/medisociai-hero.png" alt="MediSociAI">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--medisociai)"></span> MediSociAI</div>
+      </div>
+      <!-- Duplicated for infinite loop -->
+      <div class="hero-slide">
+        <img src="img/raportai-screen-dashboard.png" alt="RaportAI">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--raportai)"></span> RaportAI</div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/telesaglamliq-hero.png" alt="TeleSağlamlıq">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--telesaglamliq)"></span> TeleSağlamlıq</div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/senaris-screen-dashboard.png" alt="Senaris">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--senaris)"></span> Senaris</div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/medisociai-hero.png" alt="MediSociAI">
+        <div class="hero-slide-label"><span class="dot" style="background:var(--medisociai)"></span> MediSociAI</div>
+      </div>
     </div>
   </div>
 </section>
@@ -465,38 +526,42 @@ ul{list-style:none}
 </section>
 
 <!-- ═══════════════════════════════════════
-     PRODUCTS
+     PRODUCTS — 4 platforms
      ═══════════════════════════════════════ -->
 <section class="section section-alt" id="products">
   <div class="container">
     <div class="section-header reveal">
-      <span class="label">Ürünlerimiz</span>
+      <span class="label">Platformlarımız</span>
       <h2 class="h2">Geliştirdiğimiz Platformlar</h2>
-      <p>Sağlık profesyonellerinin ihtiyaçlarına yönelik üç platform.</p>
+      <p>Sağlık profesyonellerinin ihtiyaçlarına yönelik dört platform.</p>
     </div>
 
     <div class="products-tabs reveal">
       <button class="tab-btn active" data-tab="raportai">
-        <img src="img/raportai-logo.png" alt="RaportAI">
+        <span class="tab-icon"><i class="ph-duotone ph-microphone"></i></span>
         RaportAI
       </button>
       <button class="tab-btn" data-tab="telesaglamliq">
-        <i class="ph-duotone ph-video-camera" style="font-size:1.25rem"></i>
+        <span class="tab-icon"><i class="ph-duotone ph-video-camera"></i></span>
         TeleSağlamlıq
       </button>
-      <button class="tab-btn" data-tab="senar">
-        <i class="ph-duotone ph-hospital" style="font-size:1.25rem"></i>
-        Senar
+      <button class="tab-btn" data-tab="senaris">
+        <span class="tab-icon"><i class="ph-duotone ph-hospital"></i></span>
+        Senaris
+      </button>
+      <button class="tab-btn" data-tab="medisociai">
+        <span class="tab-icon"><i class="ph-duotone ph-share-network"></i></span>
+        MediSociAI
         <span class="coming">Yakında</span>
       </button>
     </div>
 
-    <!-- RaportAI -->
+    <!-- ──── RaportAI ──── -->
     <div class="tab-panel active" id="tab-raportai">
       <div class="product-hero reveal">
         <div class="product-hero-content">
           <span class="label">AI Radyoloji Raporlama</span>
-          <h3 class="h2">RaportAI</h3>
+          <h3 class="h2">Sesiniz, <span class="product-title-accent">Raporunuz.</span></h3>
           <p>Yapay zeka destekli radyoloji raporlama platformu. Sesli dikte ile saniyeler içinde yapılandırılmış, klinik standartlara uygun raporlar üretir. 180+ şablon, 6 dil desteği, %99+ doğruluk oranı.</p>
           <ul class="product-features-list">
             <li><i class="ph-fill ph-check-circle"></i> Sesli dikte & otomatik raporlama</li>
@@ -525,25 +590,14 @@ ul{list-style:none}
           </div>
         </div>
       </div>
-      <div class="product-ads reveal">
-        <div class="product-ad">
-          <img src="img/raportai-ad-1.jpg" alt="RaportAI Tanıtım">
-        </div>
-        <div class="product-ad">
-          <img src="img/raportai-ad-2.jpg" alt="RaportAI Tanıtım">
-        </div>
-        <div class="product-ad">
-          <img src="img/raportai-ad-3.jpg" alt="RaportAI Tanıtım">
-        </div>
-      </div>
     </div>
 
-    <!-- TeleSağlamlıq -->
+    <!-- ──── TeleSağlamlıq ──── -->
     <div class="tab-panel" id="tab-telesaglamliq">
       <div class="product-hero reveal">
         <div class="product-hero-content">
           <span class="label">Telemedisin Platformu</span>
-          <h3 class="h2">TeleSağlamlıq</h3>
+          <h3 class="h2">Sınır Tanımayan <span class="product-title-accent">Sağlık.</span></h3>
           <p>Azerbaycan'ın ilk telemedisin platformu. Video konsültasyon, 4 dil desteği, Stripe ödeme entegrasyonu. Türkiye ve Azerbaycan'da sağlık hizmetlerini dijitalleştiriyor.</p>
           <ul class="product-features-list">
             <li><i class="ph-fill ph-check-circle"></i> HD video konsültasyon</li>
@@ -577,17 +631,86 @@ ul{list-style:none}
       </div>
     </div>
 
-    <!-- Senar -->
-    <div class="tab-panel" id="tab-senar">
-      <div class="senar-placeholder reveal">
-        <i class="ph-duotone ph-rocket-launch"></i>
-        <h3 class="h3">Senar — Klinik İş Akışı Platformu</h3>
-        <p>Poliklinikler ve özel klinikler için kapsamlı otomasyon çözümu. Randevu, hasta takibi, faturalandırma ve raporlama modülleriyle yakında hizmetinizde.</p>
-        <br>
-        <a href="#contact" class="btn btn-primary">
-          Bilgi Alın
-          <i class="ph ph-arrow-right"></i>
-        </a>
+    <!-- ──── Senaris ──── -->
+    <div class="tab-panel" id="tab-senaris">
+      <div class="product-hero reveal">
+        <div class="product-hero-content">
+          <span class="label">Yeni Nesil HBYS</span>
+          <h3 class="h2">Hastanede <span class="product-title-accent">Akıl.</span></h3>
+          <p>YZ destekli patentli Senar Prism modeli ile vektör veri tabanlı yeni jenerasyon HBYS uygulaması. Otomatik veritabanı keşfi, düzenleme ve veriden değer oluşturma kapasitesiyle hastane bilgi sistemlerini yeniden tanımlıyor.</p>
+          <ul class="product-features-list">
+            <li><i class="ph-fill ph-check-circle"></i> Patentli Senar Prism AI modeli</li>
+            <li><i class="ph-fill ph-check-circle"></i> Vektör veritabanı & otomatik keşif</li>
+            <li><i class="ph-fill ph-check-circle"></i> Klinik, finans, İK & CRM modülleri</li>
+            <li><i class="ph-fill ph-check-circle"></i> Aristo AI asistan entegrasyonu</li>
+            <li><i class="ph-fill ph-check-circle"></i> Oracle HBYS uyumlu</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#contact" class="btn btn-primary">
+              Bilgi Alın
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="product-screens">
+          <div class="product-screen">
+            <img src="img/senaris-screen-dashboard.png" alt="Senaris Dashboard">
+          </div>
+          <div class="product-screen">
+            <img src="img/senaris-screen-crm.png" alt="Senaris CRM">
+          </div>
+        </div>
+      </div>
+      <div class="product-screens-3 reveal">
+        <div class="product-screen">
+          <img src="img/senaris-screen-hr.png" alt="Senaris İK Modülü">
+        </div>
+        <div class="product-screen">
+          <img src="img/senaris-screen-dashboard.png" alt="Senaris Ana Sayfa">
+        </div>
+        <div class="product-screen">
+          <img src="img/senaris-screen-crm.png" alt="Senaris Kampanyalar">
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── MediSociAI ──── -->
+    <div class="tab-panel" id="tab-medisociai">
+      <div class="product-hero reveal">
+        <div class="product-hero-content">
+          <span class="label">Sağlıkta Sosyal Medya</span>
+          <h3 class="h2">Dijital Sesinizi <span class="product-title-accent">Güçlendirin.</span></h3>
+          <p>Sağlık profesyonellerine özel yapay zeka destekli sosyal medya yönetim platformu. İçerik üretimi, çoklu platform yönetimi, KVKK uyumlu paylaşımlar ve akıllı analitik — tek panelde.</p>
+          <ul class="product-features-list">
+            <li><i class="ph-fill ph-check-circle"></i> AI destekli tıbbi içerik üretimi</li>
+            <li><i class="ph-fill ph-check-circle"></i> LinkedIn, Instagram, X, Facebook, YouTube, TikTok</li>
+            <li><i class="ph-fill ph-check-circle"></i> 100+ sağlık günü otomatik takvimi</li>
+            <li><i class="ph-fill ph-check-circle"></i> KVKK & Sağlık Bakanlığı uyumlu</li>
+            <li><i class="ph-fill ph-check-circle"></i> Akıllı analitik & performans takibi</li>
+            <li><i class="ph-fill ph-check-circle"></i> Otomatik hasta iletişimi & yorum yönetimi</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://medisociai.com" target="_blank" rel="noopener" class="btn btn-primary">
+              medisociai.com
+              <i class="ph ph-arrow-square-out"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              İletişime Geç
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="tele-hero-img">
+          <img src="img/medisociai-hero.png" alt="MediSociAI Platform">
+        </div>
+      </div>
+      <div class="tele-screens reveal">
+        <div class="tele-screen">
+          <img src="img/medisociai-features.png" alt="MediSociAI Özellikler">
+        </div>
+        <div class="tele-screen">
+          <img src="img/medisociai-social.png" alt="MediSociAI Sosyal Medya Yönetimi">
+        </div>
       </div>
     </div>
   </div>
@@ -601,7 +724,7 @@ ul{list-style:none}
     <div class="section-header reveal">
       <span class="label">Nasıl Çalışır</span>
       <h2 class="h2">Beş Adımda AI Raporlama</h2>
-      <p>RaportAI, radyoloji iş akışıniza sorunsuz entegre olur ve raporlama sürecinizi hızlandırır.</p>
+      <p>RaportAI, radyoloji iş akışınıza sorunsuz entegre olur ve raporlama sürecinizi hızlandırır.</p>
     </div>
     <div class="how-grid">
       <div class="how-image reveal">
@@ -626,7 +749,7 @@ ul{list-style:none}
           <div class="how-step-num">3</div>
           <div>
             <h4>Rapor İşlenmesi</h4>
-            <p>Metin yapılandırılmış rapor şablonlarina dönüştürülür, klinik terminoloji ile zenginleştirilir.</p>
+            <p>Metin yapılandırılmış rapor şablonlarına dönüştürülür, klinik terminoloji ile zenginleştirilir.</p>
           </div>
         </div>
         <div class="how-step">
@@ -747,7 +870,7 @@ ul{list-style:none}
           <div class="form-row">
             <div class="form-group">
               <label>Kurum</label>
-              <input type="text" placeholder="Hastane / Klinik Adi">
+              <input type="text" placeholder="Hastane / Klinik Adı">
             </div>
             <div class="form-group">
               <label>İlgilendiğiniz Ürün</label>
@@ -755,8 +878,9 @@ ul{list-style:none}
                 <option value="">Seçiniz</option>
                 <option value="raportai">RaportAI</option>
                 <option value="telesaglamliq">TeleSağlamlıq</option>
-                <option value="senar">Senar</option>
-                <option value="hepsi">Tum Ürünler</option>
+                <option value="senaris">Senaris</option>
+                <option value="medisociai">MediSociAI</option>
+                <option value="hepsi">Tüm Ürünler</option>
               </select>
             </div>
           </div>
@@ -774,8 +898,6 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- CTA Banner KALDIRILDI — gereksiz tekrar -->
-
 <!-- ═══════════════════════════════════════
      FOOTER
      ═══════════════════════════════════════ -->
@@ -787,10 +909,11 @@ ul{list-style:none}
         <p>Yapay zeka destekli sağlık teknolojisi çözümleri ile sağlık hizmetlerinin dijital dönüşümüne öncülük ediyoruz.</p>
       </div>
       <div class="footer-col">
-        <h5>Ürünler</h5>
+        <h5>Platformlar</h5>
         <a href="https://raportai.com" target="_blank" rel="noopener">RaportAI</a>
         <a href="https://telesaglamliq.com" target="_blank" rel="noopener">TeleSağlamlıq</a>
-        <a href="#products">Senar</a>
+        <a href="#products">Senaris</a>
+        <a href="https://medisociai.com" target="_blank" rel="noopener">MediSociAI</a>
       </div>
       <div class="footer-col">
         <h5>Şirket</h5>
@@ -806,7 +929,7 @@ ul{list-style:none}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2025 Emediquality Tele Sağlık Yazılım Ltd. Şti. Tüm hakları saklıdır.</span>
+      <span>&copy; 2026 Emediquality Tele Sağlık Yazılım Ltd. Şti. Tüm hakları saklıdır.</span>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/hakan-k%C4%B1l%C4%B1%C3%A7-104990312" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="https://github.com/helezon77" target="_blank" rel="noopener" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
@@ -819,10 +942,9 @@ ul{list-style:none}
      JAVASCRIPT
      ═══════════════════════════════════════ -->
 <script>
-// Header reference (no longer floating)
 const header = document.getElementById('header');
 
-// Smooth scroll for anchor links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
@@ -844,7 +966,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// Scroll reveal with IntersectionObserver
+// Scroll reveal
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
